@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Криптография - Сети и телекоммуникации</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="img/logo.png" alt="Логотип">
+            </a>
+            <nav class="menu">
+                <a class="menu-item" href="index.html">Главная</a>
+                <a class="menu-item" href="about-course.html">О курсе</a>
+                <a class="menu-item" href="contacts.html">Контакты</a>
+                <a class="menu-item" href="reviews.html">Отзывы</a>
+            </nav>
+            <div class="header-actions">
+                <a href="profile.html" class="cabinet">
+                    <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+                </a>
+                <a href="Korzina.html" class="cart-link">
+                    <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                    <span class="cart-badge" id="header-cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="lesson-section">
+            <div class="lesson-container">
+                <div class="video-player">
+                    <img src="img/video_12.png" alt="Превью видео: Криптография" class="video-preview">
+                    <div class="video-play-button">
+                        <img src="img/player.svg" alt="Воспроизвести" class="play-icon">
+                    </div>
+                </div>
+                
+                <div class="lesson-description">
+                    <h2 class="lesson-description-title">ОПИСАНИЕ УРОКА</h2>
+                    <p class="lesson-description-text">
+                        Урок посвящен основам криптографии. Рассматриваются симметричное и асимметричное шифрование, хеш-функции, электронная подпись, инфраструктура открытых ключей (PKI). Изучаются алгоритмы AES, RSA, SHA, протоколы TLS/SSL. После урока учащиеся смогут понимать, как работают современные криптографические системы, выбирать подходящие алгоритмы для разных задач и применять шифрование для защиты данных.
+                    </p>
+                </div>
+
+                <div class="lesson-feedback">
+                    <h2 class="lesson-feedback-title">ОБРАТНАЯ СВЯЗЬ ОБ УРОКЕ</h2>
+                    
+                    <div class="feedback-options">
+                        <label class="feedback-option">
+                            <input type="radio" name="lesson-feedback" value="all-clear" class="feedback-radio">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Всё понятно</span>
+                        </label>
+                        <label class="feedback-option">
+                            <input type="radio" name="lesson-feedback" value="clear" class="feedback-radio">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Понятно</span>
+                        </label>
+                        <label class="feedback-option">
+                            <input type="radio" name="lesson-feedback" value="partially-clear" class="feedback-radio">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Частично понятно</span>
+                        </label>
+                        <label class="feedback-option">
+                            <input type="radio" name="lesson-feedback" value="partially-unclear" class="feedback-radio">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Частично непонятно</span>
+                        </label>
+                        <label class="feedback-option">
+                            <input type="radio" name="lesson-feedback" value="unclear" class="feedback-radio">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Непонятно</span>
+                        </label>
+                        <label class="feedback-option">
+                            <input type="radio" name="lesson-feedback" value="totally-unclear" class="feedback-radio">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Вообще непонятно</span>
+                        </label>
+                    </div>
+
+                    <div class="feedback-button-container">
+                        <button class="feedback-submit-btn" id="feedbackSubmitBtn">Оставить отзыв</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-content">
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><img src="img/vk.svg" alt="ВКонтакте" class="social-icon"></a>
+                        <a href="#" class="social-link"><img src="img/tg.svg" alt="Телеграм" class="social-icon"></a>
+                        <a href="#" class="social-link"><img src="img/ot.svg" alt="Одноклассники" class="social-icon"></a>
+                        <a href="#" class="social-link"><img src="img/yt.svg" alt="YouTube" class="social-icon"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-line"></div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">©2025 Сети и телекоммуникации. Все права защищены.</div>
+                    <div class="footer-policy"><a href="#" class="policy-link">Политика конфиденциальности</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof updateAllCartCounters === 'function') {
+                updateAllCartCounters();
+            }
+            
+            const feedbackBtn = document.getElementById('feedbackSubmitBtn');
+            const radioButtons = document.querySelectorAll('.feedback-radio');
+
+            if (feedbackBtn) {
+                feedbackBtn.disabled = true;
+                
+                radioButtons.forEach(radio => {
+                    radio.addEventListener('change', function() {
+                        feedbackBtn.disabled = false;
+                    });
+                });
+                
+                feedbackBtn.addEventListener('click', function() {
+                    const selected = document.querySelector('input[name="lesson-feedback"]:checked');
+                    if (selected) {
+                        const message = document.createElement('div');
+                        message.style.cssText = `
+                            position: fixed;
+                            top: 100px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background-color: #44ff44;
+                            color: black;
+                            padding: 15px 30px;
+                            border-radius: 10px;
+                            font-family: "Montserrat", sans-serif;
+                            font-size: 16px;
+                            z-index: 1000;
+                            animation: slideDown 0.3s ease;
+                        `;
+                        message.textContent = 'Спасибо за ваш отзыв!';
+                        
+                        document.body.appendChild(message);
+                        
+                        setTimeout(() => {
+                            message.remove();
+                        }, 3000);
+                        
+                        this.disabled = true;
+                        
+                        radioButtons.forEach(radio => {
+                            radio.checked = false;
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+    
+    <style>
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+    </style>
+</body>
+</html>

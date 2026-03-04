@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Сети и телекоммуникации</title>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+<body>
+   <header class="header">
+    <div class="header-container">
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="img/logo.png" alt="Логотип">
+        </a>
+        
+        <nav class="menu">
+            <a class="menu-item" href="index.html">Главная</a>
+            <a class="menu-item" href="about-course.html">О курсе</a>
+            <a class="menu-item" href="contacts.html">Контакты</a>
+            <a class="menu-item" href="reviews.html">Отзывы</a>
+        </nav>
+        
+        <div class="header-actions">
+            <a href="register.html" class="cabinet">
+                <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+            </a>
+            <a href="Korzina.html" class="cart-link">
+                <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                <span class="cart-badge" id="header-cart-counter">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+    <main class="main">
+        <!-- Главный экран страницы "О курсе" на весь экран -->
+        <section class="about-hero-section">
+            <!-- Фоновое изображение на весь экран -->
+            <img src="img/Main_ecran.png" alt="Главный экран" class="about-hero-image">
+
+            <!-- Контент поверх изображения -->
+            <div class="about-hero-content">
+                <h1 class="about-hero-title">НАШ КУРС</h1>
+            </div>
+        </section>
+
+        <!-- Блок с изображением курса -->
+        <section class="about-image-section">
+            <div class="about-image-container">
+                <img src="img/O_curse_2.png" alt="Информация о курсе" class="about-image">
+
+                <div class="about-image-content">
+                    <h2 class="about-image-title">О КУРСЕ</h2>
+
+                    <div class="about-description">
+                        <p class="about-description-text">
+                            Этот учебный курс посвящен основам сетей и телекоммуникаций. Мы подробно рассмотрим ключевые
+                            концепции, технологии и протоколы, которые лежат в основе современных коммуникационных
+                            систем. Курс подойдет как для начинающих, так и для тех, кто хочет углубить свои знания в
+                            этой области.
+                        </p>
+                    </div>
+
+                    <!-- Контейнер для всех достижений -->
+                    <div class="achievements-container">
+                        <!-- Первое достижение +1000 -->
+                        <div class="about-achievement first-achievement">
+                            <div class="achievement-content">
+                                <span class="achievement-number">+1000</span>
+                                <div class="achievement-text">
+                                    <span class="text-line">Выпущенных</span>
+                                    <span class="text-line">студентов</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Второе достижение 20 наград -->
+                        <div class="about-achievement second-achievement">
+                            <div class="achievement-content">
+                                <span class="achievement-number">20</span>
+                                <div class="achievement-text">
+                                    <span class="text-line">наград</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Третье достижение 10 лет на рынке - В ОДНОЙ СТРОКЕ -->
+                        <div class="about-achievement third-achievement">
+                            <div class="achievement-content">
+                                <span class="achievement-number">10</span>
+                                <div class="achievement-text">
+                                    <span class="text-line">лет на рынке</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="about-button-wrapper">
+                        <a href="index.html#coursessection" class="about-course-btn">
+                            <span>Записаться на курс</span>
+                        </a>
+                    </div>
+        </section>
+
+    <!-- Блок "Курсы которые мы предоставляем" -->
+    <section class="courses-provided-section">
+        <div class="container">
+            <h2 class="courses-provided-title">КУРСЫ КОТОРЫЕ МЫ ПРЕДОСТАВЛЯЕМ</h2>
+            
+            <!-- Переключатели курсов -->
+            <div class="courses-tabs">
+                <div class="courses-tabs-container">
+                    <button class="course-tab active" data-course="network-admin">
+                        <span class="course-tab-text">Сетевой администратор</span>
+                    </button>
+                    
+                    <button class="course-tab" data-course="telecom-engineer">
+                        <span class="course-tab-text">Инженер по телекоммуникациям</span>
+                    </button>
+                    
+                    <button class="course-tab" data-course="cybersecurity">
+                        <span class="course-tab-text">Кибербезопасность</span>
+                    </button>
+                    
+                    <button class="course-tab" data-course="system-integrator">
+                        <span class="course-tab-text">Системный интегратор</span>
+                    </button>
+                    
+                    <button class="course-tab" data-course="network-analyst">
+                        <span class="course-tab-text">Аналитик сетевых технологий</span>
+                    </button>
+                </div>
+            </div>
+            
+    <!-- Слайдер с карточками курсов -->
+    <div class="courses-slider-section">
+        <div class="courses-slider-container">
+            <div class="courses-slider-track" id="network-admin-slider">
+                <!-- КУРС: Сетевой администратор (5 карточек) -->
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_1.png" alt="Введение в сети" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Введение в сети</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_2.png" alt="Безопасность сетей" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Безопасность сетей</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_3.png" alt="Управление сетями" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Управление сетями</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_4.png" alt="Основные сетевые протоколы" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Основные сетевые протоколы</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_5.png" alt="Настройка сетевого оборудования" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Настройка сетевого оборудования</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Остальные слайды скрыты по умолчанию -->
+            <div class="courses-slider-track" id="telecom-engineer-slider" style="display: none;">
+                <!-- КУРС: Инженер по телекоммуникациям -->
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_6.png" alt="Основы телекоммуникаций" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Основы телекоммуникаций</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_7.png" alt="Волоконно-оптические сети" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Волоконно-оптические сети</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_8.png" alt="Беспроводные технологии" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Беспроводные технологии</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_9.png" alt="Телефония и VoIP" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Телефония и VoIP</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_10.png" alt="Проектирование сетей связи" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Проектирование сетей связи</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="courses-slider-track" id="cybersecurity-slider" style="display: none;">
+                <!-- КУРС: Кибербезопасность -->
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_11.png" alt="Основы кибербезопасности" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Основы кибербезопасности</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_12.png" alt="Криптография" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Криптография</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_13.png" alt="Защита сетей" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Защита сетей</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_14.png" alt="Анализ уязвимостей" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Анализ уязвимостей</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_15.png" alt="Инцидент-менеджмент" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Инцидент-менеджмент</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="courses-slider-track" id="system-integrator-slider" style="display: none;">
+                <!-- КУРС: Системный интегратор -->
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_16.png" alt="Основы системной интеграции" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Основы системной интеграции</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_17.png" alt="Проектирование ИТ-инфраструктуры" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Проектирование ИТ-инфраструктуры</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_18.png" alt="Виртуализация и облака" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Виртуализация и облака</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_19.png" alt="Управление ИТ-проектами" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Управление ИТ-проектами</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_20.png" alt="Техническая документация" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Техническая документация</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="courses-slider-track" id="network-analyst-slider" style="display: none;">
+                <!-- КУРС: Аналитик сетевых технологий -->
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_21.png" alt="Анализ сетевого трафика" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Анализ сетевого трафика</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_22.png" alt="Мониторинг сетей" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Мониторинг сетей</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_23.png" alt="Производительность сетей" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Производительность сетей</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_24.png" alt="Прогнозирование нагрузок" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Прогнозирование нагрузок</span>
+                    </div>
+                </div>
+                <div class="course-card-slide">
+                    <img src="img/Kartochka_kurs_25.png" alt="Оптимизация сетей" class="course-card-image">
+                    <div class="course-card-rectangle">
+                        <span class="course-card-title">Оптимизация сетей</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Кнопки навигации слайдера -->
+        <div class="courses-slider-controls">
+            <button class="courses-slider-btn prev-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <button class="courses-slider-btn next-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18L15 12L9 6" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    </section>
+    </main>
+                <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Верхний блок футера -->
+            <div class="footer-top">
+                <div class="footer-content">
+                    <!-- Логотип -->
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    
+                    <!-- Навигация -->
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    
+                    <!-- Социальные сети -->
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Линия разделитель -->
+            <div class="footer-line"></div>
+            
+            <!-- Нижний блок футера -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <!-- Копирайт -->
+                    <div class="footer-copyright">
+                        ©2025 Сети и телекоммуникации. Все права защищены.
+                    </div>
+                    
+                    <!-- Политика конфиденциальности -->
+                    <div class="footer-policy">
+                        <a href="#" class="policy-link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+<script src="cart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Элементы для управления
+    const courseTabs = document.querySelectorAll('.course-tab');
+    const sliderTracks = document.querySelectorAll('.courses-slider-track');
+    const prevBtn = document.querySelector('.courses-slider-controls .prev-btn');
+    const nextBtn = document.querySelector('.courses-slider-controls .next-btn');
+    
+    // Текущие переменные
+    let currentSlider = null;
+    let currentIndex = 0;
+    let autoSlideInterval = null;
+    const slideWidth = 533 + 40; // Ширина карточки + gap
+    
+    // Карта соответствия табов и слайдеров
+    const sliderMap = {
+        'network-admin': 'network-admin-slider',
+        'telecom-engineer': 'telecom-engineer-slider',
+        'cybersecurity': 'cybersecurity-slider',
+        'system-integrator': 'system-integrator-slider',
+        'network-analyst': 'network-analyst-slider'
+    };
+    
+    // Функция для скрытия всех слайдеров, кроме указанного
+    function hideAllSliders(exceptId = null) {
+        sliderTracks.forEach(slider => {
+            if (exceptId && slider.id === exceptId) {
+                slider.style.display = 'flex';
+            } else {
+                slider.style.display = 'none';
+            }
+        });
+    }
+    
+    // Функция инициализации слайдера
+    function initializeSlider(sliderTrack) {
+        if (!sliderTrack) return;
+        
+        currentSlider = sliderTrack;
+        currentIndex = 0;
+        
+        // Сбрасываем позицию в начало
+        sliderTrack.scrollLeft = 0;
+        
+        // Обработчик кнопки "назад"
+        prevBtn.onclick = function() {
+            const slides = sliderTrack.querySelectorAll('.course-card-slide');
+            if (!slides.length) return;
+            
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = slides.length - 1;
+            }
+            
+            scrollToCurrentSlide();
+            resetAutoSlide();
+        };
+        
+        // Обработчик кнопки "вперед"
+        nextBtn.onclick = function() {
+            const slides = sliderTrack.querySelectorAll('.course-card-slide');
+            if (!slides.length) return;
+            
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            
+            scrollToCurrentSlide();
+            resetAutoSlide();
+        };
+        
+        // Функция прокрутки к текущему слайду
+        function scrollToCurrentSlide() {
+            const scrollAmount = currentIndex * slideWidth;
+            sliderTrack.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Автопрокрутка
+        startAutoSlide();
+        
+        // Пауза при наведении
+        sliderTrack.addEventListener('mouseenter', () => {
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = null;
+            }
+        });
+        
+        sliderTrack.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+    }
+    
+    // Функция автопрокрутки
+    function startAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+        }
+        
+        autoSlideInterval = setInterval(() => {
+            if (!currentSlider) return;
+            
+            const slides = currentSlider.querySelectorAll('.course-card-slide');
+            if (!slides.length) return;
+            
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            
+            const scrollAmount = currentIndex * slideWidth;
+            currentSlider.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }, 5000);
+    }
+    
+    // Сброс автопрокрутки
+    function resetAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+        startAutoSlide();
+    }
+    
+    // Инициализация первого слайдера
+    function initFirstSlider() {
+        // Скрываем все слайдеры кроме первого
+        hideAllSliders('network-admin-slider');
+        
+        // Находим первый слайдер
+        const firstSlider = document.getElementById('network-admin-slider');
+        if (firstSlider) {
+            initializeSlider(firstSlider);
+        }
+        
+        // Устанавливаем активный таб
+        const firstTab = document.querySelector('.course-tab[data-course="network-admin"]');
+        if (firstTab) {
+            firstTab.classList.add('active');
+        }
+    }
+    
+    // Инициализируем первый слайдер
+    initFirstSlider();
+    
+    // Обработка кликов по переключателям курсов
+    courseTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Убираем активный класс у всех вкладок
+            courseTabs.forEach(t => {
+                t.classList.remove('active');
+            });
+            
+            // Добавляем активный класс текущей вкладке
+            this.classList.add('active');
+            
+            // Получаем тип курса
+            const courseType = this.getAttribute('data-course');
+            
+            // Получаем ID соответствующего слайдера
+            const sliderId = sliderMap[courseType];
+            
+            // Скрываем все слайдеры, показываем нужный
+            hideAllSliders(sliderId);
+            
+            // Инициализируем новый слайдер
+            const newSlider = document.getElementById(sliderId);
+            if (newSlider) {
+                initializeSlider(newSlider);
+            }
+        });
+    });
+    
+    // Функция для определения активной страницы
+    function setActiveNavLink() {
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.split('/').pop();
+        
+        let activePage = 'index.html';
+        
+        if (currentPage === '' || currentPage === 'index.html') {
+            activePage = 'index.html';
+        } else if (currentPage === 'about-course.html') {
+            activePage = 'about-course.html';
+        } else if (currentPage === 'contacts.html') {
+            activePage = 'contacts.html';
+        } else if (currentPage === 'reviews.html') {
+            activePage = 'reviews.html';
+        } else if (currentPage === 'cabinet.html') {
+            activePage = 'cabinet.html';
+        }
+        
+        // Обновляем ссылки в хедере
+        const headerLinks = document.querySelectorAll('.menu-item');
+        headerLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === activePage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        
+        // Обновляем ссылки в футере
+        const footerLinks = document.querySelectorAll('.footer-nav-link');
+        if (footerLinks.length > 0) {
+            footerLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === activePage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+    }
+    
+    // Устанавливаем активные ссылки
+    setActiveNavLink();
+});
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины при загрузке любой страницы
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+    });
+</script>

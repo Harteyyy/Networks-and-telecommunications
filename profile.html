@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Личный кабинет - Сети и телекоммуникации</title>
+</head>
+<body>
+    <!-- Хедер -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="img/logo.png" alt="Логотип">
+            </a>
+            
+            <nav class="menu">
+                <a class="menu-item" href="index.html">Главная</a>
+                <a class="menu-item" href="about-course.html">О курсе</a>
+                <a class="menu-item" href="contacts.html">Контакты</a>
+                <a class="menu-item" href="reviews.html">Отзывы</a>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="profile.html" class="cabinet">
+                    <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+                </a>
+                <a href="Korzina.html" class="cart-link">
+                    <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                    <span class="cart-badge" id="header-cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Секция профиля -->
+        <section class="profile-section">
+            <div class="profile-container">
+                <!-- Фотография пользователя -->
+                <div class="profile-photo" id="profilePhoto">
+                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="80" r="50" stroke="white" stroke-width="3" fill="none"/>
+                        <path d="M180 190C180 150 150 120 100 120C50 120 20 150 20 190" stroke="white" stroke-width="3" fill="none"/>
+                    </svg>
+                </div>
+                
+                <!-- Данные пользователя -->
+                <div class="profile-data" id="profileData">
+                    <!-- Блок Имя -->
+                    <div class="profile-data-block">
+                        <h2 class="profile-data-title">Имя</h2>
+                        <p class="profile-data-value" id="profileName">Стариков Владислав Викторович</p>
+                    </div>
+                    
+                    <!-- Блок Почта -->
+                    <div class="profile-data-block">
+                        <h2 class="profile-data-title">Почта</h2>
+                        <p class="profile-data-value" id="profileEmail">starikovvladislav.17@gmail.com</p>
+                    </div>
+                    
+                    <!-- Блок Телефон -->
+                    <div class="profile-data-block">
+                        <h2 class="profile-data-title">Телефон</h2>
+                        <p class="profile-data-value" id="profilePhone">+79505362276</p>
+                    </div>
+                    
+                    <!-- Кнопки -->
+                    <div class="profile-buttons">
+                        <a href="edit-profile.html" class="profile-btn profile-edit-btn">
+                            <span>Редактировать профиль</span>
+                            <img src="img/redactor.svg" alt="Редактировать" class="profile-edit-icon">
+                        </a>
+                        <button class="profile-btn profile-logout-btn" id="logoutBtn">
+                            <span>Выйти</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Секция модулей курса -->
+<section class="modules-section">
+    <div class="modules-container">
+        <h2 class="modules-title">ТВОИ МОДУЛИ КУРСА</h2>
+        
+        <!-- Переключатели курсов -->
+        <div class="modules-tabs">
+            <div class="modules-tabs-container">
+                <button class="module-tab active" data-module="current">
+                    <span class="module-tab-text">Текущие</span>
+                </button>
+                
+                <button class="module-tab" data-module="completed">
+                    <span class="module-tab-text">Пройденные</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Контейнер для текущих модулей -->
+        <div class="modules-content" id="current-modules">
+            <!-- Слайдер с карточками тем сетевого администрирования -->
+            <div class="modules-slider-section">
+                <div class="modules-slider-container">
+                    <div class="modules-slider-track" id="current-modules-slider">
+                        <!-- КАРТОЧКА 1: Введение в сети -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_1.png" alt="Введение в сети" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Введение в сети</span>
+                            </div>
+                            <a href="lesson-network-intro.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                        
+                        <!-- КАРТОЧКА 2: Безопасность сетей -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_2.png" alt="Безопасность сетей" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Безопасность сетей</span>
+                            </div>
+                            <a href="lesson-network-security.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                        
+                        <!-- КАРТОЧКА 3: Управление сетями -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_3.png" alt="Управление сетями" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Управление сетями</span>
+                            </div>
+                            <a href="lesson-network-management.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                        
+                        <!-- КАРТОЧКА 4: Основные сетевые протоколы -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_4.png" alt="Основные сетевые протоколы" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Основные сетевые протоколы</span>
+                            </div>
+                            <a href="lesson-network-protocols.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                        
+                        <!-- КАРТОЧКА 5: Настройка сетевого оборудования -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_5.png" alt="Настройка сетевого оборудования" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Настройка сетевого оборудования</span>
+                            </div>
+                            <a href="lesson-network-config.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Кнопки навигации слайдера -->
+                <div class="modules-slider-controls">
+                    <button class="modules-slider-btn prev-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18L9 12L15 6" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="modules-slider-btn next-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Контейнер для пройденных модулей (скрыт по умолчанию) -->
+        <div class="modules-content" id="completed-modules" style="display: none;">
+            <!-- Слайдер с карточками тем по кибербезопасности -->
+            <div class="modules-slider-section">
+                <div class="modules-slider-container">
+                    <div class="modules-slider-track" id="completed-modules-slider">
+                        <!-- КАРТОЧКА 1: Основы кибербезопасности -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_11.png" alt="Основы кибербезопасности" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Основы кибербезопасности</span>
+                            </div>
+                            <a href="lesson-security-basics.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                        
+                        <!-- КАРТОЧКА 2: Криптография -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_12.png" alt="Криптография" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Криптография</span>
+                            </div>
+                            <a href="lesson-cryptography.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                        
+                        <!-- КАРТОЧКА 3: Защита сетей -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_13.png" alt="Защита сетей" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Защита сетей</span>
+                            </div>
+                            <a href="lesson-network-protection.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                        
+                        <!-- КАРТОЧКА 4: Анализ уязвимостей -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_14.png" alt="Анализ уязвимостей" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Анализ уязвимостей</span>
+                            </div>
+                            <a href="lesson-vulnerability-analysis.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                        
+                        <!-- КАРТОЧКА 5: Инцидент-менеджмент -->
+                        <div class="module-card-slide">
+                            <img src="img/Kartochka_kurs_15.png" alt="Инцидент-менеджмент" class="module-card-image">
+                            <div class="module-card-rectangle">
+                                <span class="module-card-title">Инцидент-менеджмент</span>
+                            </div>
+                            <a href="lesson-incident-management.html" class="module-card-btn">Перейти к уроку</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Кнопки навигации слайдера -->
+                <div class="modules-slider-controls">
+                    <button class="modules-slider-btn prev-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18L9 12L15 6" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="modules-slider-btn next-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопка "Связаться с куратором" -->
+        <div class="curator-button-container">
+            <a href="contacts.html" class="curator-btn">Связаться с куратором</a>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-content">
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-line"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        ©2025 Сети и телекоммуникации. Все права защищены.
+                    </div>
+                    
+                    <div class="footer-policy">
+                        <a href="#" class="policy-link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="cart.js"></script>
+<script src="auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+        
+        // Проверяем авторизацию
+        if (typeof checkAuth !== 'function' || !checkAuth()) {
+            window.location.href = 'register.html';
+            return;
+        }
+        
+        // Получаем данные пользователя
+        const user = getCurrentUser();
+        
+        // Обновляем данные на странице
+        if (user) {
+            const nameElement = document.getElementById('profileName');
+            const emailElement = document.getElementById('profileEmail');
+            const phoneElement = document.getElementById('profilePhone');
+            const profilePhoto = document.getElementById('profilePhoto');
+            
+            if (nameElement && user.fullname) {
+                nameElement.textContent = user.fullname;
+            }
+            
+            if (emailElement && user.email) {
+                emailElement.textContent = user.email;
+            }
+            
+            if (phoneElement && user.phone) {
+                let phone = user.phone;
+                const cleaned = phone.replace(/\s|-|\(|\)/g, '');
+                
+                if (cleaned.length === 11 && (cleaned[0] === '7' || cleaned[0] === '8')) {
+                    const countryCode = cleaned[0] === '8' ? '7' : cleaned[0];
+                    phone = `+${countryCode} (${cleaned.substring(1, 4)}) ${cleaned.substring(4, 7)}-${cleaned.substring(7, 9)}-${cleaned.substring(9, 11)}`;
+                } else if (cleaned.length === 10) {
+                    phone = `+7 (${cleaned.substring(0, 3)}) ${cleaned.substring(3, 6)}-${cleaned.substring(6, 8)}-${cleaned.substring(8, 10)}`;
+                }
+                
+                phoneElement.textContent = phone;
+            }
+            
+            // Если есть сохраненное фото, отображаем его
+            if (user.photo && profilePhoto) {
+                const svg = profilePhoto.querySelector('svg');
+                let img = profilePhoto.querySelector('img');
+                
+                if (!img) {
+                    img = document.createElement('img');
+                    img.className = 'profile-photo-img';
+                    if (svg) svg.remove();
+                    profilePhoto.appendChild(img);
+                }
+                img.src = user.photo;
+            }
+        }
+        
+        // Обработка выхода
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (typeof logout === 'function') {
+                    logout();
+                }
+                
+                const message = document.createElement('div');
+                message.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: #0000FF;
+                    color: white;
+                    padding: 15px 30px;
+                    border-radius: 10px;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 16px;
+                    z-index: 1000;
+                    animation: slideDown 0.3s ease;
+                `;
+                message.textContent = 'Вы успешно вышли из аккаунта';
+                
+                document.body.appendChild(message);
+                
+                setTimeout(() => {
+                    message.remove();
+                    window.location.href = 'login.html';
+                }, 2000);
+            });
+        }
+        
+        // ===========================================
+        // ПЕРЕКЛЮЧАТЕЛИ МОДУЛЕЙ
+        // ===========================================
+        
+        const moduleTabs = document.querySelectorAll('.module-tab');
+        const currentModules = document.getElementById('current-modules');
+        const completedModules = document.getElementById('completed-modules');
+        
+        if (moduleTabs.length > 0) {
+            moduleTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Убираем активный класс у всех вкладок
+                    moduleTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Добавляем активный класс текущей вкладке
+                    this.classList.add('active');
+                    
+                    // Получаем тип модуля
+                    const moduleType = this.getAttribute('data-module');
+                    
+                    // Показываем соответствующий контейнер
+                    if (moduleType === 'current') {
+                        currentModules.style.display = 'block';
+                        completedModules.style.display = 'none';
+                        // Инициализируем слайдер после показа
+                        setTimeout(() => {
+                            initModuleSlider('current-modules-slider');
+                        }, 100);
+                    } else {
+                        currentModules.style.display = 'none';
+                        completedModules.style.display = 'block';
+                        // Инициализируем слайдер после показа
+                        setTimeout(() => {
+                            initModuleSlider('completed-modules-slider');
+                        }, 100);
+                    }
+                    
+                    // Сбрасываем позицию скролла слайдера
+                    setTimeout(() => {
+                        const activeSlider = moduleType === 'current' 
+                            ? document.getElementById('current-modules-slider')
+                            : document.getElementById('completed-modules-slider');
+                        
+                        if (activeSlider) {
+                            activeSlider.scrollLeft = 0;
+                        }
+                    }, 50);
+                });
+            });
+        }
+        
+        // ===========================================
+        // СЛАЙДЕР МОДУЛЕЙ
+        // ===========================================
+        
+        function initModuleSlider(sliderId) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) {
+                console.log('Слайдер не найден:', sliderId);
+                return;
+            }
+            
+            // Находим родительский контейнер
+            const container = slider.closest('.modules-content');
+            if (!container) {
+                console.log('Контейнер не найден для слайдера:', sliderId);
+                return;
+            }
+            
+            // Ищем кнопки внутри этого контейнера
+            const prevBtn = container.querySelector('.prev-btn');
+            const nextBtn = container.querySelector('.next-btn');
+            
+            if (!prevBtn || !nextBtn) {
+                console.log('Кнопки не найдены для слайдера:', sliderId);
+                return;
+            }
+            
+            // Получаем первую карточку для расчета ширины
+            const cardSlide = slider.querySelector('.module-card-slide');
+            if (!cardSlide) {
+                console.log('Карточки не найдены в слайдере:', sliderId);
+                return;
+            }
+            
+            const cardWidth = cardSlide.offsetWidth;
+            const gap = 40;
+            const scrollAmount = cardWidth + gap;
+            
+            console.log(`Слайдер ${sliderId}: ширина карточки ${cardWidth}, прокрутка ${scrollAmount}`);
+            
+            // Удаляем старые обработчики, создавая новые кнопки
+            const newPrevBtn = prevBtn.cloneNode(true);
+            const newNextBtn = nextBtn.cloneNode(true);
+            prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+            nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+            
+            newPrevBtn.addEventListener('click', () => {
+                console.log('Клик Prev для:', sliderId);
+                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            
+            newNextBtn.addEventListener('click', () => {
+                console.log('Клик Next для:', sliderId);
+                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+            
+            console.log(`Слайдер ${sliderId} успешно инициализирован`);
+        }
+        
+        // Функция для инициализации всех видимых слайдеров
+        function initVisibleSliders() {
+            if (currentModules && currentModules.style.display !== 'none') {
+                setTimeout(() => {
+                    initModuleSlider('current-modules-slider');
+                }, 200);
+            }
+            
+            if (completedModules && completedModules.style.display !== 'none') {
+                setTimeout(() => {
+                    initModuleSlider('completed-modules-slider');
+                }, 200);
+            }
+        }
+        
+        // Инициализация при загрузке
+        initVisibleSliders();
+        
+        // Также инициализируем при изменении размера окна
+        window.addEventListener('resize', function() {
+            initVisibleSliders();
+        });
+    });
+</script>
+
+<style>
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -20px);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+    }
+</style>
+    
+    <style>
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+    </style>
+</body>
+</html>

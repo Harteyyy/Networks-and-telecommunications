@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Регистрация - Сети и телекоммуникации</title>
+</head>
+<body>
+    <!-- Хедер -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="img/logo.png" alt="Логотип">
+            </a>
+            
+            <nav class="menu">
+                <a class="menu-item" href="index.html">Главная</a>
+                <a class="menu-item" href="about-course.html">О курсе</a>
+                <a class="menu-item" href="contacts.html">Контакты</a>
+                <a class="menu-item" href="reviews.html">Отзывы</a>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="register.html" class="cabinet">
+                    <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+                </a>
+                <a href="Korzina.html" class="cart-link">
+                    <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                    <span class="cart-badge" id="header-cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Секция регистрации -->
+        <section class="register-section">
+            <div class="register-container">
+                <!-- Иконка сайта -->
+                <img src="img/IconSite.svg" alt="Иконка сайта" class="register-icon">
+                
+                <!-- Заголовок -->
+                <h1 class="register-title">РЕГИСТРАЦИЯ</h1>
+                
+                <!-- Форма регистрации -->
+                <form class="register-form" id="registerForm">
+                    <!-- Поле ФИО -->
+                    <div class="form-group">
+                        <label class="input-label">Введите ваше ФИО</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="fullname" 
+                                name="fullname" 
+                                class="form-input"
+                                placeholder="ФИО"
+                                required
+                            >
+                            <div class="error-plate" id="fullname-error">
+                                <span class="error-text"></span>
+                                <div class="error-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Поле Почта -->
+                    <div class="form-group">
+                        <label class="input-label">Введите вашу почту</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-input"
+                                placeholder="Почта"
+                                required
+                            >
+                            <div class="error-plate" id="email-error">
+                                <span class="error-text"></span>
+                                <div class="error-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Поле Телефон -->
+                    <div class="form-group">
+                        <label class="input-label">Введите ваш номер телефона</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form-input"
+                                placeholder="Телефон"
+                                required
+                            >
+                            <div class="error-plate" id="phone-error">
+                                <span class="error-text"></span>
+                                <div class="error-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Поле Пароль -->
+                    <div class="form-group">
+                        <label class="input-label">Придумайте пароль</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="form-input"
+                                placeholder="Пароль"
+                                required
+                            >
+                            <div class="error-plate" id="password-error">
+                                <span class="error-text"></span>
+                                <div class="error-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Кнопки -->
+                    <div class="register-buttons">
+                        <button type="submit" class="register-btn register-submit" id="register-submit-btn">Зарегистрироваться</button>
+                        <a href="login.html" class="register-btn register-login">Войти</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-content">
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-line"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        ©2025 Сети и телекоммуникации. Все права защищены.
+                    </div>
+                    
+                    <div class="footer-policy">
+                        <a href="#" class="policy-link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="cart.js"></script>
+<script src="auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+        
+        // Проверяем, может пользователь уже авторизован
+        if (typeof checkAuth === 'function' && checkAuth()) {
+            window.location.href = 'profile.html';
+            return;
+        }
+        
+        // ===========================================
+        // ВАЛИДАЦИЯ ФОРМЫ РЕГИСТРАЦИИ
+        // ===========================================
+        
+        const form = document.getElementById('registerForm');
+        if (!form) return;
+        
+        const fullnameInput = document.getElementById('fullname');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const passwordInput = document.getElementById('password');
+        const submitBtn = document.getElementById('register-submit-btn');
+        
+        // Элементы для плашек с ошибками
+        const fullnameErrorPlate = document.getElementById('fullname-error');
+        const emailErrorPlate = document.getElementById('email-error');
+        const phoneErrorPlate = document.getElementById('phone-error');
+        const passwordErrorPlate = document.getElementById('password-error');
+        
+        // Текстовые элементы внутри плашек
+        const fullnameErrorText = fullnameErrorPlate.querySelector('.error-text');
+        const emailErrorText = emailErrorPlate.querySelector('.error-text');
+        const phoneErrorText = phoneErrorPlate.querySelector('.error-text');
+        const passwordErrorText = passwordErrorPlate.querySelector('.error-text');
+        
+        // Регулярные выражения
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,20}$/;
+        const nameRegex = /^[а-яА-ЯёЁa-zA-Z\s]{2,50}$/;
+        const passwordRegex = /^.{6,}$/; // Минимум 6 символов
+        
+        // Функция для отображения ошибки
+        function showError(inputElement, errorPlate, errorTextElement, message) {
+            if (!inputElement || !errorPlate || !errorTextElement) return;
+            
+            inputElement.classList.add('error');
+            inputElement.classList.remove('success');
+            errorTextElement.textContent = message;
+            
+            setTimeout(() => {
+                errorPlate.classList.add('show');
+            }, 10);
+            
+            setTimeout(() => {
+                hideError(errorPlate);
+            }, 5000);
+        }
+        
+        function hideError(errorPlate) {
+            if (!errorPlate) return;
+            errorPlate.classList.remove('show');
+        }
+        
+        function showSuccess(inputElement, errorPlate) {
+            if (!inputElement || !errorPlate) return;
+            inputElement.classList.remove('error');
+            inputElement.classList.add('success');
+            hideError(errorPlate);
+        }
+        
+        // Валидация ФИО
+        function validateFullname() {
+            const value = fullnameInput.value.trim();
+            
+            if (value === '') {
+                showError(fullnameInput, fullnameErrorPlate, fullnameErrorText, 'Пожалуйста, введите ваше ФИО');
+                return false;
+            }
+            
+            if (!nameRegex.test(value)) {
+                showError(fullnameInput, fullnameErrorPlate, fullnameErrorText, 'ФИО должно содержать только буквы (2-50 символов)');
+                return false;
+            }
+            
+            showSuccess(fullnameInput, fullnameErrorPlate);
+            return true;
+        }
+        
+        // Валидация email
+        function validateEmail() {
+            const value = emailInput.value.trim();
+            
+            if (value === '') {
+                showError(emailInput, emailErrorPlate, emailErrorText, 'Пожалуйста, введите вашу почту');
+                return false;
+            }
+            
+            if (!emailRegex.test(value)) {
+                showError(emailInput, emailErrorPlate, emailErrorText, 'Введите корректный email (например: name@domain.ru)');
+                return false;
+            }
+            
+            showSuccess(emailInput, emailErrorPlate);
+            return true;
+        }
+        
+        // Валидация телефона
+        function validatePhone() {
+            const value = phoneInput.value.trim();
+            
+            if (value === '') {
+                showError(phoneInput, phoneErrorPlate, phoneErrorText, 'Пожалуйста, введите номер телефона');
+                return false;
+            }
+            
+            const cleanPhone = value.replace(/\s|-|\(|\)/g, '');
+            if (!phoneRegex.test(cleanPhone)) {
+                showError(phoneInput, phoneErrorPlate, phoneErrorText, 'Введите корректный номер телефона (10-20 цифр)');
+                return false;
+            }
+            
+            showSuccess(phoneInput, phoneErrorPlate);
+            return true;
+        }
+        
+        // Валидация пароля
+        function validatePassword() {
+            const value = passwordInput.value.trim();
+            
+            if (value === '') {
+                showError(passwordInput, passwordErrorPlate, passwordErrorText, 'Пожалуйста, придумайте пароль');
+                return false;
+            }
+            
+            if (!passwordRegex.test(value)) {
+                showError(passwordInput, passwordErrorPlate, passwordErrorText, 'Пароль должен содержать минимум 6 символов');
+                return false;
+            }
+            
+            showSuccess(passwordInput, passwordErrorPlate);
+            return true;
+        }
+        
+        // Валидация всей формы
+        function validateForm() {
+            const isFullnameValid = validateFullname();
+            const isEmailValid = validateEmail();
+            const isPhoneValid = validatePhone();
+            const isPasswordValid = validatePassword();
+            
+            return isFullnameValid && isEmailValid && isPhoneValid && isPasswordValid;
+        }
+        
+        // Обработчики событий для валидации
+        if (fullnameInput) {
+            fullnameInput.addEventListener('blur', validateFullname);
+            fullnameInput.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateFullname();
+                }
+            });
+            fullnameInput.addEventListener('focus', function() {
+                hideError(fullnameErrorPlate);
+            });
+        }
+        
+        if (emailInput) {
+            emailInput.addEventListener('blur', validateEmail);
+            emailInput.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateEmail();
+                }
+            });
+            emailInput.addEventListener('focus', function() {
+                hideError(emailErrorPlate);
+            });
+        }
+        
+        if (phoneInput) {
+            phoneInput.addEventListener('blur', validatePhone);
+            phoneInput.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validatePhone();
+                }
+            });
+            phoneInput.addEventListener('focus', function() {
+                hideError(phoneErrorPlate);
+            });
+        }
+        
+        if (passwordInput) {
+            passwordInput.addEventListener('blur', validatePassword);
+            passwordInput.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validatePassword();
+                }
+            });
+            passwordInput.addEventListener('focus', function() {
+                hideError(passwordErrorPlate);
+            });
+        }
+        
+        // Обработка отправки формы
+        if (form && submitBtn) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm()) {
+                    const firstError = document.querySelector('.error');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
+                
+                // Собираем данные пользователя
+                const userData = {
+                    fullname: fullnameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    phone: phoneInput.value.trim(),
+                    registeredAt: new Date().toISOString(),
+                    verifiedVia: 'email' // По умолчанию через email
+                };
+                
+                // Вызываем функцию входа из auth.js
+                if (typeof login === 'function') {
+                    login(userData);
+                    console.log('Пользователь зарегистрирован:', userData);
+                } else {
+                    console.error('Функция login не найдена');
+                }
+                
+                // Перенаправляем в личный кабинет
+                window.location.href = 'profile.html';
+            });
+        }
+    });
+</script>
+</body>
+</html>

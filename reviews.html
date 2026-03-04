@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Отзывы - Сети и телекоммуникации</title>
+</head>
+<body>
+    <!-- Хедер (абсолютное позиционирование, как на странице "О курсе") -->
+<header class="header">
+    <div class="header-container">
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="img/logo.png" alt="Логотип">
+        </a>
+        
+        <nav class="menu">
+            <a class="menu-item" href="index.html">Главная</a>
+            <a class="menu-item" href="about-course.html">О курсе</a>
+            <a class="menu-item" href="contacts.html">Контакты</a>
+            <a class="menu-item" href="reviews.html">Отзывы</a>
+        </nav>
+        
+        <div class="header-actions">
+            <a href="register.html" class="cabinet">
+                <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+            </a>
+            <a href="Korzina.html" class="cart-link">
+                <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                <span class="cart-badge" id="header-cart-counter">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <!-- Главный экран страницы "Отзывы" на весь экран -->
+    <section class="reviews-hero-section">
+        <!-- Фоновое изображение на весь экран -->
+        <img src="img/Main_ecran_rewes.png" alt="Главный экран отзывов" class="reviews-hero-image">
+
+        <!-- Контент поверх изображения -->
+        <div class="reviews-hero-content">
+            <!-- Заголовок -->
+            <div class="reviews-title-container">
+                <h1 class="reviews-title">Отзывы о нашем курсе</h1>
+            </div>
+            
+            <!-- Текст описания -->
+            <div class="reviews-description-container">
+                <p class="reviews-description">
+                    Нам важно, чтобы вы приняли взвешенное решение об обучении на платформе. Поэтому мы собрали для вас честные мнения пользователей, так вы сможете оценить все плюсы и минусы и найдёте ответы на волнующие вопросы.
+                </p>
+            </div>
+        </div>
+    </section>
+
+<!-- Плашки с показателями -->
+<section class="reviews-stats-section">
+    <div class="reviews-stats-container">
+        <div class="stats-grid">
+            <!-- Плашка 1: Средний рейтинг -->
+            <div class="stats-card">
+                <div class="stats-number">4.8</div>
+                <div class="stats-text">Средний рейтинг курсов</div>
+            </div>
+            
+            <!-- Плашка 2: Общение с куратором -->
+            <div class="stats-card">
+                <div class="stats-number">92%</div>
+                <div class="stats-text">Оценили общение с куратором</div>
+            </div>
+            
+            <!-- Плашка 3: Материал курса -->
+            <div class="stats-card">
+                <div class="stats-number">95%</div>
+                <div class="stats-text">Высоко оценили материал курса</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Система фильтрации и отзывов -->
+<section class="reviews-filter-section">
+    <div class="reviews-filter-container">
+        <!-- Фильтры (радиокнопки) слева -->
+        <div class="filter-sidebar">
+            <h2 class="filter-title">Фильтр по направлениям</h2>
+            <div class="filter-options">
+                <label class="filter-option active">
+                    <input type="radio" name="review-filter" value="all" checked>
+                    <span class="radio-custom"></span>
+                    <span class="radio-text">Все направления</span>
+                </label>
+                
+                <label class="filter-option">
+                    <input type="radio" name="review-filter" value="network-admin">
+                    <span class="radio-custom"></span>
+                    <span class="radio-text">Сетевой администратор</span>
+                </label>
+                
+                <label class="filter-option">
+                    <input type="radio" name="review-filter" value="system-integrator">
+                    <span class="radio-custom"></span>
+                    <span class="radio-text">Системный интегратор</span>
+                </label>
+                
+                <label class="filter-option">
+                    <input type="radio" name="review-filter" value="cybersecurity">
+                    <span class="radio-custom"></span>
+                    <span class="radio-text">Кибербезопасность</span>
+                </label>
+                
+                <label class="filter-option">
+                    <input type="radio" name="review-filter" value="telecommunications">
+                    <span class="radio-custom"></span>
+                    <span class="radio-text">Телекоммуникации</span>
+                </label>
+                
+                <label class="filter-option">
+                    <input type="radio" name="review-filter" value="network-analyst">
+                    <span class="radio-custom"></span>
+                    <span class="radio-text">Аналитик сетевых технологий</span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Отзывы справа -->
+        <div class="reviews-main">
+            <!-- Контейнер для отзывов -->
+            <div class="reviews-grid" id="reviewsContainer">
+                <!-- Отзывы будут загружаться через JavaScript -->
+            </div>
+            
+            <!-- Кнопка "Загрузить еще" -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <span class="load-more-text">Загрузить еще</span>
+                    <img src="img/Reload_more.svg" alt="Загрузить еще" class="load-more-icon">
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Верхний блок футера -->
+            <div class="footer-top">
+                <div class="footer-content">
+                    <!-- Логотип -->
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    
+                    <!-- Навигация -->
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    
+                    <!-- Социальные сети -->
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Линия разделитель -->
+            <div class="footer-line"></div>
+            
+            <!-- Нижний блок футера -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <!-- Копирайт -->
+                    <div class="footer-copyright">
+                        ©2025 Сети и телекоммуникации. Все права защищены.
+                    </div>
+                    
+                    <!-- Политика конфиденциальности -->
+                    <div class="footer-policy">
+                        <a href="#" class="policy-link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="cart.js"></script>
+    <script>
+        // Функция для определения активной страницы
+        function setActiveNavLink() {
+            // Получаем текущий URL
+            const currentPath = window.location.pathname;
+            const currentPage = currentPath.split('/').pop();
+            
+            // Определяем активную страницу
+            let activePage = 'index.html'; // по умолчанию
+            
+            if (currentPage === '' || currentPage === 'index.html') {
+                activePage = 'index.html';
+            } else if (currentPage === 'about-course.html') {
+                activePage = 'about-course.html';
+            } else if (currentPage === 'contacts.html') {
+                activePage = 'contacts.html';
+            } else if (currentPage === 'reviews.html') {
+                activePage = 'reviews.html';
+            } else if (currentPage === 'cabinet.html') {
+                activePage = 'cabinet.html';
+            }
+            
+            // Находим все ссылки в хедере
+            const headerLinks = document.querySelectorAll('.menu-item');
+            headerLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === activePage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Находим все ссылки в футере
+            const footerLinks = document.querySelectorAll('.footer-nav-link');
+            footerLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === activePage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Запускаем при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            setActiveNavLink();
+        });
+
+        // Данные отзывов
+const reviewsData = {
+    all: [
+        {
+            id: 1,
+            name: "Валерия",
+            specialty: "Сетевой администратор",
+            text: "Я прошла курс и очень довольна! Знания, полученные здесь, помогли мне стать сетевым администратором.",
+            avatar: "img/reviews_ava_1.png",
+            category: "network-admin"
+        },
+        {
+            id: 2,
+            name: "Игорь",
+            specialty: "Системный интегратор",
+            text: "Сайт очень удобный, а навигация простая и интуитивно понятная. Я быстро нашла нужный товар и смогла сравнить несколько вариантов. Оплата прошла без проблем, а доставка была быстрой и без задержек.",
+            avatar: "img/reviews_ava_2.png",
+            category: "system-integrator"
+        },
+        {
+            id: 3,
+            name: "Андрей",
+            specialty: "Инженер по телекоммуникациям",
+            text: "Курс был очень информативным. Теперь я чувствую себя уверенно в роли инженера по телекоммуникациям.",
+            avatar: "img/reviews_ava_3.png",
+            category: "telecommunications"
+        },
+        {
+            id: 4,
+            name: "Елизавета",
+            specialty: "Специалист по кибербезопасности",
+            text: "Отличное содержание и качественные материалы. Рекомендую всем, кто хочет стать специалистом по кибербезопасности.",
+            avatar: "img/reviews_ava_4.png",
+            category: "cybersecurity"
+        }
+    ],
+    'network-admin': [
+        {
+            id: 1,
+            name: "Валерия",
+            specialty: "Сетевой администратор",
+            text: "Я прошла курс и очень довольна! Знания, полученные здесь, помогли мне стать сетевым администратором.",
+            avatar: "img/reviews_ava_1.png",
+            category: "network-admin"
+        },
+        {
+            id: 5,
+            name: "Михаил",
+            specialty: "Сетевой администратор",
+            text: "Превосходный курс! Все темы объясняются доступно и понятно. Теперь я уверенно работаю с сетевым оборудованием.",
+            avatar: "img/reviews_ava_5.png",
+            category: "network-admin"
+        }
+    ],
+    'system-integrator': [
+        {
+            id: 2,
+            name: "Игорь",
+            specialty: "Системный интегратор",
+            text: "Сайт очень удобный, а навигация простая и интуитивно понятная. Я быстро нашла нужный товар и смогла сравнить несколько вариантов. Оплата прошла без проблем, а доставка была быстрой и без задержек.",
+            avatar: "img/reviews_ava_2.png",
+            category: "system-integrator"
+        }
+    ],
+    'cybersecurity': [
+        {
+            id: 4,
+            name: "Елизавета",
+            specialty: "Специалист по кибербезопасности",
+            text: "Отличное содержание и качественные материалы. Рекомендую всем, кто хочет стать специалистом по кибербезопасности.",
+            avatar: "img/reviews_ava_4.png",
+            category: "cybersecurity"
+        }
+    ],
+    'telecommunications': [
+        {
+            id: 3,
+            name: "Андрей",
+            specialty: "Инженер по телекоммуникациям",
+            text: "Курс был очень информативным. Теперь я чувствую себя уверенно в роли инженера по телекоммуникациям.",
+            avatar: "img/reviews_ava_3.png",
+            category: "telecommunications"
+        }
+    ],
+    'network-analyst': [
+        {
+            id: 6,
+            name: "Алексей",
+            specialty: "Аналитик сетевых технологий",
+            text: "Курс помог мне систематизировать знания и получить практические навыки анализа сетевого трафика.",
+            avatar: "img/reviews_ava_6.png",
+            category: "network-analyst"
+        }
+    ]
+};
+
+// Дополнительные отзывы
+const additionalReviews = {
+    'network-admin': [
+        {
+            id: 7,
+            name: "Сергей",
+            specialty: "Сетевой администратор",
+            text: "Отличная практическая часть курса. Много реальных кейсов из работы сетевых администраторов.",
+            avatar: "img/reviews_ava_7.png",
+            category: "network-admin"
+        }
+    ],
+    'system-integrator': [
+        {
+            id: 8,
+            name: "Ольга",
+            specialty: "Системный интегратор",
+            text: "Курс дает комплексное понимание системной интеграции. Особенно полезны были модули по проектированию.",
+            avatar: "img/reviews_ava_8.png",
+            category: "system-integrator"
+        }
+    ]
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    const reviewsContainer = document.getElementById('reviewsContainer');
+    const filterOptions = document.querySelectorAll('.filter-option');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    
+    let currentFilter = 'all';
+    let currentReviews = [...reviewsData.all];
+    let loadedReviews = 4;
+    
+    // Функция создания HTML отзыва
+    function createReviewHTML(review) {
+        return `
+            <div class="review-card" data-category="${review.category}" data-id="${review.id}">
+                <div class="review-content">
+                    <div class="review-header">
+                        <img src="${review.avatar}" alt="${review.name}" class="review-avatar">
+                        <div class="review-header-text">
+                            <h3 class="review-name">${review.name}</h3>
+                        </div>
+                    </div>
+                    <h4 class="review-specialty">${review.specialty}</h4>
+                    <p class="review-text">${review.text}</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    // Функция отрисовки отзывов
+    function renderReviews(reviews) {
+        reviewsContainer.innerHTML = '';
+        
+        const reviewsToShow = reviews.slice(0, loadedReviews);
+        
+        reviewsToShow.forEach(review => {
+            reviewsContainer.innerHTML += createReviewHTML(review);
+        });
+        
+        // Показываем/скрываем кнопку "Загрузить еще"
+        if (reviews.length > loadedReviews) {
+            loadMoreBtn.style.display = 'flex';
+        } else {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+    
+    // Функция смены фильтра
+    function changeFilter(filterValue) {
+        currentFilter = filterValue;
+        loadedReviews = 4;
+        
+        // Обновляем активный класс у радиокнопок
+        filterOptions.forEach(option => {
+            const input = option.querySelector('input');
+            if (input.value === filterValue) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+        
+        // Получаем отзывы для выбранного фильтра
+        currentReviews = reviewsData[filterValue] || [];
+        
+        // Рендерим отзывы
+        renderReviews(currentReviews);
+    }
+    
+    // Обработчики кликов на фильтры
+    filterOptions.forEach(option => {
+        const input = option.querySelector('input');
+        
+        option.addEventListener('click', function() {
+            changeFilter(input.value);
+        });
+    });
+    
+    // Обработчик кнопки "Загрузить еще"
+    loadMoreBtn.addEventListener('click', function() {
+        loadedReviews += 2;
+        
+        if (additionalReviews[currentFilter] && currentFilter !== 'all') {
+            reviewsData[currentFilter] = [
+                ...reviewsData[currentFilter],
+                ...additionalReviews[currentFilter]
+            ];
+            currentReviews = reviewsData[currentFilter];
+        }
+        
+        renderReviews(currentReviews);
+        
+        if (loadedReviews >= currentReviews.length) {
+            this.style.display = 'none';
+        }
+    });
+    
+    // Инициализация
+    renderReviews(currentReviews);
+});
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины при загрузке любой страницы
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+    });
+    </script>
+</body>
+</html>

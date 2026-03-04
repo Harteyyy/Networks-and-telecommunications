@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Сети и телекоммуникации</title>
+    <style>
+        /* Для плавной прокрутки */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="header-container">
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="img/logo.png" alt="Логотип">
+        </a>
+        
+        <nav class="menu">
+            <a class="menu-item" href="index.html">Главная</a>
+            <a class="menu-item" href="about-course.html">О курсе</a>
+            <a class="menu-item" href="contacts.html">Контакты</a>
+            <a class="menu-item" href="reviews.html">Отзывы</a>
+        </nav>
+        
+        <div class="header-actions">
+            <a href="register.html" class="cabinet">
+                <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+            </a>
+            <a href="Korzina.html" class="cart-link">
+                <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                <span class="cart-badge" id="header-cart-counter">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <!-- СЛАЙДЕР -->
+    <section class="slider-section">
+        <div class="slider-container">
+            <img class="main_slide" src="img/Fon_slide_1.png" alt="Фон слайда">
+            
+            <div class="slide_content">
+                <h1 class="slide_title">Один курс — пять профессий</h1>
+                <!-- КНОПКА В СЛАЙДЕРЕ - ВЕДЕТ К БЛОКУ КУРСОВ -->
+                <a href="#courses-section" class="slide_button anchor-button">
+                    <span>Записаться на курс</span>
+                </a>
+            </div>
+            
+            <div class="slider-rects">
+                <div class="slider-rect active" data-slide="0"></div>
+                <div class="slider-rect" data-slide="1"></div>
+                <div class="slider-rect" data-slide="2"></div>
+                <div class="slider-rect" data-slide="3"></div>
+                <div class="slider-rect" data-slide="4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- НАСТАВНИКИ -->
+    <section class="mentors-section">
+        <div class="container">
+            <h2 class="mentors-title">НАШИ НАСТАВНИКИ</h2>
+            
+            <div class="mentors-slider">
+                <div class="mentors-slider-container">
+                    <div class="mentor-slide">
+                        <div class="mentor-overlay">
+                            <div class="mentor-info">
+                                <h3 class="mentor-name">Андрей Волков</h3>
+                                <p class="mentor-role">Эксперт по сетевым технологиям и кибербезопасности</p>
+                                <div class="mentor-details">
+                                    <p><strong>Опыт:</strong> 15+ лет в проектировании и администрировании корпоративных сетей.</p>
+                                    <p><strong>Экспертиза:</strong> Cisco, Juniper, защита сетей, VPN, SDN.</p>
+                                    <p><strong>Особенности преподавания:</strong> Объясняет сложные концепции на реальных кейсах.</p>
+                                    <p><strong>Хобби:</strong> Участвует в CTF-соревнованиях по информационной безопасности.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="img/Prepod_1.png" alt="Андрей Волков" class="mentor-photo">
+                    </div>
+                    
+                    <div class="mentor-slide">
+                        <div class="mentor-overlay">
+                            <div class="mentor-info">
+                                <h3 class="mentor-name">Алина Морозова</h3>
+                                <p class="mentor-role">Эксперт по DevOps и облачным сетям</p>
+                                <div class="mentor-details">
+                                    <p><strong>Опыт:</strong> 10 лет в облачных решениях (AWS, Azure, Kubernetes).</p>
+                                    <p><strong>Экспертиза:</strong> DevOps, автоматизация сетей, микросервисная архитектура.</p>
+                                    <p><strong>Особенности преподавания:</strong> Учит инструментам, которые используют в топовых IT-компаниях.</p>
+                                    <p><strong>Хобби:</strong> Бег и участие в хакатонах.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="img/Prepod_2.png" alt="Алина Морозова" class="mentor-photo">
+                    </div>
+                    
+                    <div class="mentor-slide">
+                        <div class="mentor-overlay">
+                            <div class="mentor-info">
+                                <h3 class="mentor-name">Михаил Соколов</h3>
+                                <p class="mentor-role">Специалист по телекоммуникациям и беспроводным технологиям</p>
+                                <div class="mentor-details">
+                                    <p><strong>Опыт:</strong> 12 лет работы в крупных телеком-компаниях (Ростелеком, МТС).</p>
+                                    <p><strong>Экспертиза:</strong> 5G, Wi-Fi 6, оптические сети, IoT.</p>
+                                    <p><strong>Особенности преподавания:</strong> Делает акцент на практику, разбирает реальные инженерные задачи.</p>
+                                    <p><strong>Хобби:</strong> Радиолюбитель, собирает антенны для дальней связи.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="img/Prepod_3.png" alt="Михаил Соколов" class="mentor-photo">
+                    </div>
+                    
+                    <div class="mentor-slide">
+                        <div class="mentor-overlay">
+                            <div class="mentor-info">
+                                <h3 class="mentor-name">Максим Волков</h3>
+                                <p class="mentor-role">Эксперт по телекоммуникациям и сетевым технологиям</p>
+                                <div class="mentor-details">
+                                    <p><strong>Опыт:</strong> 15 лет в проектировании и развертывании сетевой инфраструктуры.</p>
+                                    <p><strong>Экспертиза:</strong> Работа с крупными телеком-операторами.</p>
+                                    <p><strong>Особенности преподавания:</strong> Разработка и внедрение масштабируемых сетевых решений.</p>
+                                    <p><strong>Хобби:</strong> Регулярный спикер на ключевых отраслевых мероприятиях.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="img/Prepod_4.png" alt="Максим Волков" class="mentor-photo">
+                    </div>
+                    
+                    <div class="mentor-slide">
+                        <div class="mentor-overlay">
+                            <div class="mentor-info">
+                                <h3 class="mentor-name">Анна Соколова</h3>
+                                <p class="mentor-role">Эксперт по сетевым технологиям и телекоммуникациям</p>
+                                <div class="mentor-details">
+                                    <p><strong>Опыт:</strong> 12 лет успешной работы в проектировании и внедрении сетевых решений.</p>
+                                    <p><strong>Экспертиза:</strong> Опыт с крупными корпоративными клиентами.</p>
+                                    <p><strong>Особенности преподавания:</strong> Разработка архитектуры сетей нового поколения (5G, SDN).</p>
+                                    <p><strong>Хобби:</strong> Регулярный спикер на ключевых отраслевых мероприятиях.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="img/Prepod_5.png" alt="Анна Соколова" class="mentor-photo">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-controls">
+                <button class="slider-btn prev-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <button class="slider-btn next-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- КУРСЫ - ЭТО ЯКОРЬ ДЛЯ КНОПКИ В СЛАЙДЕРЕ -->
+    <section class="courses-section" id="courses-section">
+        <div class="container">
+            <h2 class="courses-title">НАШИ КУРСЫ</h2>
+            
+            <div class="view-more">
+                <span class="view-more-text">Смотреть ещё</span>
+                <svg class="view-more-arrow" width="30" height="10" viewBox="0 0 30 10" fill="none">
+                    <path d="M0 5L25 5M25 5L20 0M25 5L20 10" stroke="#0000FF" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            
+            <!-- ПЕРВЫЕ 3 КУРСА -->
+            <div class="courses-grid">
+                <!-- КУРС 1: Сетевое администрирование -->
+                <div class="course-card">
+                    <img src="img/Kurs_1.png" alt="Сетевое администрирование" class="course-image">
+                    <div class="course-info">
+                        <h3 class="course-title">Сетевое администрирование</h3>
+                        <p class="course-description">Сетевое администрирование - это область информационных технологий, которая охватывает проектирование, настройку, управление и поддержку компьютерных сетей.</p>
+                    </div>
+                    <!-- КНОПКА ВЕДЕТ НА СТРАНИЦУ КУРСА -->
+                    <a href="network-admin.html" class="course-button">
+                        <span>Записаться на курс</span>
+                    </a>
+                </div>
+                
+                <!-- КУРС 2: Системный интегратор -->
+                <div class="course-card">
+                    <img src="img/Kurs_2.png" alt="Системный интегратор" class="course-image">
+                    <div class="course-info">
+                        <h3 class="course-title">Системный интегратор</h3>
+                        <p class="course-description">Системный интегратор - это профессионал, который занимается объединением различных систем и компонентов в единую, функционирующую систему.</p>
+                    </div>
+                    <!-- КНОПКА ВЕДЕТ НА СТРАНИЦУ КУРСА -->
+                    <a href="system-integrator.html" class="course-button">
+                        <span>Записаться на курс</span>
+                    </a>
+                </div>
+                
+                <!-- КУРС 3: Специалист по кибербезопасности -->
+                <div class="course-card">
+                    <img src="img/Kurs_3.png" alt="Специалист по кибербезопасности" class="course-image">
+                    <div class="course-info">
+                        <h3 class="course-title course-title-small">Специалист по кибербезопасности</h3>
+                        <p class="course-description">Специалист по кибербезопасности — это профессионал, который отвечает за защиту информационных систем и данных от киберугроз и атак.</p>
+                    </div>
+                    <!-- КНОПКА ВЕДЕТ НА СТРАНИЦУ КУРСА -->
+                    <a href="cybersecurity.html" class="course-button">
+                        <span>Записаться на курс</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- АККОРДЕОН С КУРСАМИ 4-6 -->
+            <div id="coursesAccordion" style="display: none;">
+                <div style="height: 50px;"></div>
+                
+                <div class="courses-grid additional-courses">
+                    <!-- КУРС 4: Инженер по телекоммуникациям -->
+                    <div class="course-card">
+                        <img src="img/Kurs_4.png" alt="Инженер по телекоммуникациям" class="course-image">
+                        <div class="course-info">
+                            <h3 class="course-title">Инженер по телекоммуникациям</h3>
+                            <p class="course-description">Инженер по телекоммуникациям — это специалист, занимающийся проектированием, настройкой, обслуживанием и оптимизацией систем связи и передачи данных.</p>
+                        </div>
+                        <!-- КНОПКА ВЕДЕТ НА СТРАНИЦУ КУРСА -->
+                        <a href="telecommunications.html" class="course-button">
+                            <span>Записаться на курс</span>
+                        </a>
+                    </div>
+                    
+                    <!-- КУРС 5: Современные сетевые технологии -->
+                    <div class="course-card">
+                        <img src="img/Kurs_5.png" alt="Современные сетевые технологии" class="course-image">
+                        <div class="course-info">
+                            <h3 class="course-title">Современные сетевые технологии</h3>
+                            <p class="course-description">Современные сетевые технологии — это динамично развивающаяся сфера, объединяющая проектирование, развертывание и управление высокопроизводительными и безопасными сетями передачи данных.</p>
+                        </div>
+                        <!-- КНОПКА ВЕДЕТ НА СТРАНИЦУ КУРСА -->
+                        <a href="network-technologies.html" class="course-button">
+                            <span>Записаться на курс</span>
+                        </a>
+                    </div>
+                    
+                    <!-- КУРС 6: Сетевой инженер -->
+                    <div class="course-card">
+                        <img src="img/Kurs_6.png" alt="Сетевой инженер" class="course-image">
+                        <div class="course-info">
+                            <h3 class="course-title">Сетевой инженер</h3>
+                            <p class="course-description">Сетевой инженер — это специалист, отвечающий за проектирование, развертывание и поддержку компьютерных сетей различного масштаба.</p>
+                        </div>
+                        <!-- КНОПКА ВЕДЕТ НА СТРАНИЦУ КУРСА -->
+                        <a href="network-engineer.html" class="course-button">
+                            <span>Записаться на курс</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ОТЗЫВЫ -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="reviews-title">ОТЗЫВЫ</h2>
+            
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="img/Otziv_1.png" alt="Фото автора отзыва" class="review-photo">
+                        <span class="review-name">Валерия</span>
+                    </div>
+                    <div class="review-specialty-block">
+                        <span class="review-specialty">Сетевой администратор</span>
+                    </div>
+                    <div class="review-text-block">
+                        <p class="review-text">Программа курса была хорошо структурирована и охватывала все ключевые аспекты администрирования систем, включая настройку серверов, управление сетями и обеспечение безопасности.</p>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="img/Otziv_2.png" alt="Фото автора отзыва" class="review-photo">
+                        <span class="review-name">Игорь</span>
+                    </div>
+                    <div class="review-specialty-block">
+                        <span class="review-specialty">Специалист по <br>кибербезопасности</span>
+                    </div>
+                    <div class="review-text-block">
+                        <p class="review-text">Курс был отлично организован, с четким планом и разнообразными темами. Мы изучали основные аспекты киберугроз, методы защиты и средства мониторинга, а также современные технологии и подходы к обеспечению безопасности информации.</p>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="img/Otziv_3.png" alt="Фото автора отзыва" class="review-photo">
+                        <span class="review-name">Елизовета</span>
+                    </div>
+                    <div class="review-specialty-block">
+                        <span class="review-specialty">Системный интегратор</span>
+                    </div>
+                    <div class="review-text-block">
+                        <p class="review-text">Курс был структурированным и глубоко проработанным. Мы охватывали ключевые аспекты системной интеграции, включая проектирование, настройку и оптимизацию систем, а также управление проектами и взаимодействие с клиентами.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- КНОПКА "БОЛЬШЕ ОТЗЫВОВ" - ВЕДЕТ НА СТРАНИЦУ ОТЗЫВОВ -->
+            <div class="more-reviews-btn-container">
+                <a href="reviews.html" class="more-reviews-btn">
+                    <span class="btn-text">Больше отзывов</span>
+                    <div class="btn-ellipse">
+                        <svg class="btn-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-content">
+                <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                
+                <nav class="footer-nav">
+                    <a href="index.html" class="footer-nav-link">Главная</a>
+                    <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                    <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                    <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                </nav>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-link">
+                        <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-line"></div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <div class="footer-copyright">
+                    ©2025 Сети и телекоммуникации. Все права защищены.
+                </div>
+                
+                <div class="footer-policy">
+                    <a href="#" class="policy-link">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+// ПРОСТОЙ И РАБОЧИЙ JAVASCRIPT
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. ГЛАВНЫЙ СЛАЙДЕР
+    const sliderRects = document.querySelectorAll('.slider-rect');
+    const mainSlide = document.querySelector('.main_slide');
+    const slideTitle = document.querySelector('.slide_title');
+    
+    // Массив слайдов
+    const slides = [
+        { image: 'img/Fon_slide_1.png', title: 'Один курс — пять профессий' },
+        { image: 'img/Fon_slide_2.png', title: 'Сетевое администрирование' },
+        { image: 'img/Fon_slide_3.png', title: 'Системный интегратор' },
+        { image: 'img/Fon_slide_4.png', title: 'Специалист по кибербезопасности' },
+        { image: 'img/Fon_slide_5.png', title: 'Инженер по телекоммуникациям' }
+    ];
+    
+    // Функция смены слайда
+    function changeSlide(index) {
+        // Убираем активный класс у всех прямоугольников
+        sliderRects.forEach(rect => rect.classList.remove('active'));
+        // Добавляем активный класс текущему
+        sliderRects[index].classList.add('active');
+        
+        // Меняем изображение с анимацией
+        mainSlide.style.opacity = '0.7';
+        setTimeout(() => {
+            mainSlide.src = slides[index].image;
+            slideTitle.textContent = slides[index].title;
+            mainSlide.style.opacity = '1';
+        }, 200);
+    }
+    
+    // Клики на прямоугольники
+    sliderRects.forEach((rect, index) => {
+        rect.addEventListener('click', () => changeSlide(index));
+    });
+    
+    // Автопереключение слайдов
+    let currentSlide = 0;
+    let slideInterval = setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        changeSlide(currentSlide);
+    }, 5000);
+    
+    // Остановка автопереключения при наведении
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        sliderContainer.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                changeSlide(currentSlide);
+            }, 5000);
+        });
+    }
+    
+    // 2. СЛАЙДЕР ПРЕПОДАВАТЕЛЕЙ
+    const mentorsSlider = document.querySelector('.mentors-slider-container');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    if (mentorsSlider && prevBtn && nextBtn) {
+        const slideWidth = 539 + 40;
+        
+        prevBtn.addEventListener('click', () => {
+            mentorsSlider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            mentorsSlider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+        });
+    }
+    
+    // 3. АККОРДЕОН КУРСОВ ("Смотреть ещё")
+    const viewMore = document.querySelector('.view-more');
+    const accordion = document.getElementById('coursesAccordion');
+    
+    if (viewMore && accordion) {
+        let isOpen = false;
+        
+        viewMore.addEventListener('click', () => {
+            isOpen = !isOpen;
+            
+            // Показываем/скрываем аккордеон
+            accordion.style.display = isOpen ? 'block' : 'none';
+            
+            // Меняем текст
+            const text = document.querySelector('.view-more-text');
+            text.textContent = isOpen ? 'Скрыть' : 'Смотреть ещё';
+            
+            // Поворачиваем стрелку
+            const arrow = document.querySelector('.view-more-arrow');
+            arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+    }
+    
+    // 4. АКТИВНЫЕ ССЫЛКИ В НАВИГАЦИИ
+    function updateActiveLinks() {
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        // Навигация в хедере
+        document.querySelectorAll('.menu-item').forEach(link => {
+            if (link.getAttribute('href') === currentPage || 
+                (currentPage === '' && link.getAttribute('href') === 'index.html')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        
+        // Навигация в футере
+        document.querySelectorAll('.footer-nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPage ||
+                (currentPage === '' && link.getAttribute('href') === 'index.html')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+    
+    updateActiveLinks();
+    
+});
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины при загрузке любой страницы
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+    });
+</script>
+</body>
+</html>

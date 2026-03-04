@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Сетевое администрирование - Сети и телекоммуникации</title>
+</head>
+<body>
+<header class="header">
+    <div class="header-container">
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="img/logo.png" alt="Логотип">
+        </a>
+        
+        <nav class="menu">
+            <a class="menu-item" href="index.html">Главная</a>
+            <a class="menu-item" href="about-course.html">О курсе</a>
+            <a class="menu-item" href="contacts.html">Контакты</a>
+            <a class="menu-item" href="reviews.html">Отзывы</a>
+        </nav>
+        
+        <div class="header-actions">
+            <a href="register.html" class="cabinet">
+                <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+            </a>
+            <a href="Korzina.html" class="cart-link">
+                <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                <span class="cart-badge" id="header-cart-counter">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+    <main class="main">
+        <section class="page-course-info-section"> <!-- ИЗМЕНИЛ класс -->
+            <div class="page-course-container"> <!-- ИЗМЕНИЛ класс -->
+                <!-- Картинка слева -->
+                <img src="img/kartochka_1.png" alt="Сетевое администрирование" class="page-course-main-image"> <!-- ИЗМЕНИЛ класс -->
+                
+                <!-- Контент справа -->
+                <div class="page-course-content"> <!-- ИЗМЕНИЛ класс -->
+                    <h1 class="page-course-title">Сетевое администрирование</h1> <!-- ИЗМЕНИЛ класс -->
+                    
+                    <div class="page-course-description"> <!-- ИЗМЕНИЛ класс -->
+                        <p>Сетевое администрирование - это область информационных технологий, которая охватывает проектирование, настройку, управление и поддержку компьютерных сетей. Этот курс предназначен для тех, кто хочет освоить профессию сетевого и системного администратора с нуля или углубить свои знания в администрировании корпоративных сетей и серверов.</p>
+                    </div>
+                    
+                    <div class="page-course-learn"> <!-- ИЗМЕНИЛ класс -->
+                        <h2 class="page-learn-title">Вы научитесь:</h2> <!-- ИЗМЕНИЛ класс -->
+                        <ul class="page-learn-list"> <!-- ИЗМЕНИЛ класс -->
+                            <li>Настраивать сетевое оборудование (Cisco, MikroTik, Huawei)</li>
+                            <li>Работать с операционными системами (Linux, Windows Server)</li>
+                            <li>Разворачивать и обслуживать серверы (DNS, DHCP, Active Directory, VPN)</li>
+                            <li>Обеспечивать безопасность и отказоустойчивость ИТ-инфраструктуры</li>
+                            <li>Автоматизировать задачи с помощью скриптов (Bash, PowerShell)</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="#" class="page-course-enroll-btn"> <!-- ИЗМЕНИЛ класс -->
+                        <span>Записаться на курс</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+<!-- НОВЫЙ БЛОК: НАСТАВНИКИ КУРСА -->
+<section class="course-mentors-section">
+    <div class="container">
+        <h1 class="course-mentors-title">Наставники курса</h1>
+        
+        <!-- Контейнер для фотографий наставников -->
+        <div class="mentors-photos-container">
+            <div class="mentors-photos-grid">
+                <!-- Фото наставника 1 -->
+                <div class="mentor-photo-item">
+                    <img src="img/Prepod_1.png" alt="Наставник 1" class="mentor-photo">
+                </div>
+                
+                <!-- Фото наставника 2 -->
+                <div class="mentor-photo-item">
+                    <img src="img/Prepod_2.png" alt="Наставник 2" class="mentor-photo">
+                </div>
+                
+                <!-- Фото наставника 3 -->
+                <div class="mentor-photo-item">
+                    <img src="img/Prepod_3.png" alt="Наставник 3" class="mentor-photo">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Контейнер для плашек с описанием преподавателей -->
+        <div class="mentors-description-container">
+            <div class="mentors-description-grid">
+                <!-- Плашка преподавателя 1 -->
+                <div class="mentor-description-card">
+                    <h3 class="mentor-name">Андрей Волков</h3>
+                    <p class="mentor-profession">Эксперт по сетевым технологиям и кибербезопасности</p>
+                    <div class="mentor-achievements">
+                        <p>🔹 <strong>Опыт:</strong> 15+ лет в проектировании и администрировании корпоративных сетей.</p>
+                        <p>🔹 <strong>Экспертиза:</strong> Cisco, Juniper, защита сетей, VPN, SDN.</p>
+                        <p>🔹 <strong>Особенности преподавания:</strong> Объясняет сложные концепции на реальных кейсах, умеет заинтересовать даже сложными темами.</p>
+                        <p>🔹 <strong>Хобби:</strong> Участвует в CTF-соревнованиях по информационной безопасности.</p>
+                    </div>
+                </div>
+                
+                <!-- Плашка преподавателя 2 -->
+                <div class="mentor-description-card">
+                    <h3 class="mentor-name">Алина Морозова</h3>
+                    <p class="mentor-profession">Эксперт по DevOps и облачным сетям</p>
+                    <div class="mentor-achievements">
+                        <p>🔹 <strong>Опыт:</strong> 10 лет в облачных решениях (AWS, Azure, Kubernetes).</p>
+                        <p>🔹 <strong>Экспертиза:</strong> DevOps, автоматизация сетей, микросервисная архитектура.</p>
+                        <p>🔹 <strong>Особенности преподавания:</strong> Учит не только теории, но и инструментам, которые используют в топовых IT-компаниях.</p>
+                        <p>🔹 <strong>Хобби:</strong> Бег и участие в хакатонах.</p>
+                    </div>
+                </div>
+                
+                <!-- Плашка преподавателя 3 -->
+                <div class="mentor-description-card">
+                    <h3 class="mentor-name">Михаил Соколов</h3>
+                    <p class="mentor-profession">Специалист по телекоммуникациям и беспроводным технологиям</p>
+                    <div class="mentor-achievements">
+                        <p>🔹 <strong>Опыт:</strong> 12 лет работы в крупных телеком-компаниях (Ростелеком, МТС).</p>
+                        <p>🔹 <strong>Экспертиза:</strong> 5G, Wi-Fi 6, оптические сети, IoT.</p>
+                        <p>🔹 <strong>Особенности преподавания:</strong> Делает акцент на практику, разбирает реальные инженерные задачи.</p>
+                        <p>🔹 <strong>Хобби:</strong> Радиолюбитель, собирает антенны для дальней связи.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- БЛОК: ДРУГИЕ КУРСЫ -->
+<section class="other-courses-section">
+    <div class="container">
+        <h2 class="other-courses-title">Другие курсы</h2>
+        
+        <!-- Просто сетка карточек как на главной странице -->
+        <div class="other-courses-grid">
+            <!-- КУРС 1: Системный интегратор -->
+            <div class="other-course-card">
+                <img src="img/Kurs_2.png" alt="Системный интегратор" class="other-course-image">
+                <div class="other-course-info">
+                    <h3 class="other-course-title-card">Системный интегратор</h3>
+                    <p class="other-course-description">Системный интегратор - это профессионал, который занимается объединением различных систем и компонентов в единую, функционирующую систему.</p>
+                </div>
+                <a href="system-integrator.html" class="other-course-button">
+                    <span>Записаться на курс</span>
+                </a>
+            </div>
+            
+            <!-- КУРС 2: Специалист по кибербезопасности -->
+            <div class="other-course-card">
+                <img src="img/Kurs_3.png" alt="Специалист по кибербезопасности" class="other-course-image">
+                <div class="other-course-info">
+                    <h3 class="other-course-title-card other-course-title-small">Специалист по кибербезопасности</h3>
+                    <p class="other-course-description">Специалист по кибербезопасности — это профессионал, который отвечает за защиту информационных систем и данных от киберугроз и атак.</p>
+                </div>
+                <a href="cybersecurity.html" class="other-course-button">
+                    <span>Записаться на курс</span>
+                </a>
+            </div>
+            
+            <!-- КУРС 3: Инженер по телекоммуникациям -->
+            <div class="other-course-card">
+                <img src="img/Kurs_4.png" alt="Инженер по телекоммуникациям" class="other-course-image">
+                <div class="other-course-info">
+                    <h3 class="other-course-title-card">Инженер по телекоммуникациям</h3>
+                    <p class="other-course-description">Инженер по телекоммуникациям — это специалист, занимающийся проектированием, настройкой, обслуживанием и оптимизацией систем связи и передачи данных.</p>
+                </div>
+                <a href="telecommunications.html" class="other-course-button">
+                    <span>Записаться на курс</span>
+                </a>
+            </div>
+            
+            <!-- КУРС 4: Современные сетевые технологии -->
+            <div class="other-course-card">
+                <img src="img/Kurs_5.png" alt="Современные сетевые технологии" class="other-course-image">
+                <div class="other-course-info">
+                    <h3 class="other-course-title-card">Современные сетевые технологии</h3>
+                    <p class="other-course-description">Современные сетевые технологии — это динамично развивающаяся сфера, объединяющая проектирование, развертывание и управление высокопроизводительными и безопасными сетями передачи данных.</p>
+                </div>
+                <a href="network-technologies.html" class="other-course-button">
+                    <span>Записаться на курс</span>
+                </a>
+            </div>
+            
+            <!-- КУРС 5: Сетевой инженер -->
+            <div class="other-course-card">
+                <img src="img/Kurs_6.png" alt="Сетевой инженер" class="other-course-image">
+                <div class="other-course-info">
+                    <h3 class="other-course-title-card">Сетевой инженер</h3>
+                    <p class="other-course-description">Сетевой инженер — это специалист, отвечающий за проектирование, развертывание и поддержку компьютерных сетей различного масштаба.</p>
+                </div>
+                <a href="network-engineer.html" class="other-course-button">
+                    <span>Записаться на курс</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Верхний блок футера -->
+            <div class="footer-top">
+                <div class="footer-content">
+                    <!-- Логотип -->
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    
+                    <!-- Навигация -->
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    
+                    <!-- Социальные сети -->
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Линия разделитель -->
+            <div class="footer-line"></div>
+            
+            <!-- Нижний блок футера -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <!-- Копирайт -->
+                    <div class="footer-copyright">
+                        ©2025 Сети и телекоммуникации. Все права защищены.
+                    </div>
+                    
+                    <!-- Политика конфиденциальности -->
+                    <div class="footer-policy">
+                        <a href="#" class="policy-link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подключаем общий файл с логикой корзины -->
+    <script src="cart.js"></script>
+    <script>
+        // JavaScript для активной навигации
+        document.addEventListener('DOMContentLoaded', function() {
+            // Устанавливаем активную ссылку в навигации
+            function setActiveNavLink() {
+                const currentPath = window.location.pathname;
+                const currentPage = currentPath.split('/').pop();
+                
+                // Определяем активную страницу
+                let activePage = 'index.html';
+                
+                if (currentPage === '' || currentPage === 'index.html') {
+                    activePage = 'index.html';
+                } else if (currentPage === 'about-course.html') {
+                    activePage = 'about-course.html';
+                } else if (currentPage === 'contacts.html') {
+                    activePage = 'contacts.html';
+                } else if (currentPage === 'reviews.html') {
+                    activePage = 'reviews.html';
+                } else if (currentPage === 'network-admin.html') {
+                    activePage = 'network-admin.html';
+                } else if (currentPage === 'system-integrator.html') {
+                    activePage = 'system-integrator.html';
+                } else if (currentPage === 'cybersecurity.html') {
+                    activePage = 'cybersecurity.html';
+                } else if (currentPage === 'telecommunications.html') {
+                    activePage = 'telecommunications.html';
+                } else if (currentPage === 'network-technologies.html') {
+                    activePage = 'network-technologies.html';
+                } else if (currentPage === 'network-engineer.html') {
+                    activePage = 'network-engineer.html';
+                } else if (currentPage === 'cabinet.html') {
+                    activePage = 'cabinet.html';
+                }
+                
+                // Обновляем ссылки в хедере
+                const headerLinks = document.querySelectorAll('.menu-item');
+                headerLinks.forEach(link => {
+                    const linkHref = link.getAttribute('href');
+                    if (linkHref === activePage) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+                
+                // Обновляем ссылки в футере
+                const footerLinks = document.querySelectorAll('.footer-nav-link');
+                footerLinks.forEach(link => {
+                    const linkHref = link.getAttribute('href');
+                    if (linkHref === activePage) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Запускаем при загрузке страницы
+            setActiveNavLink();
+        });
+
+        // JavaScript для страницы курса "Сетевое администрирование"
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Функция для определения активной страницы
+    function setActiveNavLink() {
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        let activePage = 'index.html';
+        
+        if (currentPage === '' || currentPage === 'index.html') {
+            activePage = 'index.html';
+        } else if (currentPage === 'about-course.html') {
+            activePage = 'about-course.html';
+        } else if (currentPage === 'contacts.html') {
+            activePage = 'contacts.html';
+        } else if (currentPage === 'reviews.html') {
+            activePage = 'reviews.html';
+        } else if (currentPage === 'network-admin.html') {
+            activePage = 'network-admin.html';
+        } else if (currentPage === 'system-integrator.html') {
+            activePage = 'system-integrator.html';
+        } else if (currentPage === 'cybersecurity.html') {
+            activePage = 'cybersecurity.html';
+        } else if (currentPage === 'telecommunications.html') {
+            activePage = 'telecommunications.html';
+        } else if (currentPage === 'network-technologies.html') {
+            activePage = 'network-technologies.html';
+        } else if (currentPage === 'network-engineer.html') {
+            activePage = 'network-engineer.html';
+        } else if (currentPage === 'cabinet.html') {
+            activePage = 'cabinet.html';
+        }
+        
+        // Обновляем ссылки в хедере
+        document.querySelectorAll('.menu-item').forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === activePage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        
+        // Обновляем ссылки в футере
+        document.querySelectorAll('.footer-nav-link').forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === activePage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+    
+    // Устанавливаем активные ссылки
+    setActiveNavLink();
+    
+    // КНОПКА "ЗАПИСАТЬСЯ НА КУРС" (на этой странице)
+    const enrollButton = document.querySelector('.page-course-enroll-btn');
+    if (enrollButton) {
+        enrollButton.addEventListener('click', function(e) {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+            e.preventDefault();
+        });
+    }
+    
+    // ПРЕДЗАГРУЗКА ИЗОБРАЖЕНИЙ ДЛЯ КАРТОЧЕК КУРСОВ
+    function preloadImages() {
+        const images = [
+            'img/Kurs_2.png',
+            'img/Kurs_3.png',
+            'img/Kurs_4.png',
+            'img/Kurs_5.png',
+            'img/Kurs_6.png'
+        ];
+        
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
+    
+    // Запускаем предзагрузку
+    preloadImages();
+});
+
+    // Обработчик кнопки "Записаться на курс"
+    document.addEventListener('DOMContentLoaded', function() {
+        const enrollBtn = document.querySelector('.page-course-enroll-btn');
+        
+        if (enrollBtn) {
+            enrollBtn.addEventListener('click', function(e) {
+                e.preventDefault(); // Отменяем стандартное поведение
+                
+                // Данные текущего курса (подставь свои значения)
+                const course = {
+                    id: 2, // У каждого курса свой ID
+                    name: 'Сетевое администрирование',
+                    price: 15000,
+                    image: 'img/kartochka_korzina_2.png',
+                    quantity: 1
+                };
+                
+                // Добавляем в корзину
+                addToCart(course);
+                
+                // Перенаправляем на страницу корзины
+                window.location.href = 'Korzina.html';
+            });
+        }
+    });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины при загрузке любой страницы
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+    });
+    </script>
+</body>
+</html>

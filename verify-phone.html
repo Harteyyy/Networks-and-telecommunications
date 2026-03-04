@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Подтверждение телефона - Сети и телекоммуникации</title>
+</head>
+<body>
+    <!-- Хедер -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="img/logo.png" alt="Логотип">
+            </a>
+            
+            <nav class="menu">
+                <a class="menu-item" href="index.html">Главная</a>
+                <a class="menu-item" href="about-course.html">О курсе</a>
+                <a class="menu-item" href="contacts.html">Контакты</a>
+                <a class="menu-item" href="reviews.html">Отзывы</a>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="register.html" class="cabinet">
+                    <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+                </a>
+                <a href="Korzina.html" class="cart-link">
+                    <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                    <span class="cart-badge" id="header-cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="register-section">
+            <div class="register-container">
+                <!-- Иконка сайта -->
+                <img src="img/IconSite.svg" alt="Иконка сайта" class="register-icon">
+                
+                <!-- Заголовок -->
+                <h1 class="register-title">ПОДТВЕРЖДЕНИЕ ТЕЛЕФОНА</h1>
+                
+                <!-- Информация о том, куда отправлен код -->
+                <div class="verify-info" id="verifyInfo">
+                    <!-- Сюда подставится номер телефона -->
+                </div>
+                
+                <!-- Форма подтверждения -->
+                <form class="register-form" id="verifyForm">
+                    <!-- Поле для ввода кода -->
+                    <div class="form-group">
+                        <label class="input-label">Введите код из SMS</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="code" 
+                                name="code" 
+                                class="form-input"
+                                placeholder="6-значный код"
+                                maxlength="6"
+                                required
+                            >
+                            <div class="error-plate" id="code-error">
+                                <span class="error-text"></span>
+                                <div class="error-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Кнопки - с отступом 40px как на страницах входа и регистрации -->
+                    <div class="register-buttons">
+                        <button type="submit" class="register-btn register-submit">Подтвердить</button>
+                        <a href="login.html" class="register-btn register-login">Выбрать другой способ</a>
+                    </div>
+                    
+                    <!-- Дополнительная информация -->
+                    <div style="margin-top: 30px; text-align: center;">
+                        <p style="color: rgba(255, 255, 255, 0.5); font-size: 14px;">
+                            Не пришел код? <a href="#" style="color: #0000FF; text-decoration: none;" id="resendCode">Отправить еще раз</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-content">
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-line"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        ©2025 Сети и телекоммуникации. Все права защищены.
+                    </div>
+                    
+                    <div class="footer-policy">
+                        <a href="#" class="policy-link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="cart.js"></script>
+<script src="auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+        
+        // Проверяем, может пользователь уже авторизован
+        if (typeof checkAuth === 'function' && checkAuth()) {
+            window.location.href = 'profile.html';
+            return;
+        }
+        
+        // Получаем сохраненные данные из localStorage
+        const tempData = JSON.parse(localStorage.getItem('tempLoginData') || '{}');
+        const verifyInfo = document.getElementById('verifyInfo');
+        
+        // Форматируем номер телефона для отображения
+        function formatPhoneNumber(phone) {
+            const cleaned = phone.replace(/\s|-|\(|\)/g, '');
+            
+            if (cleaned.length === 11) {
+                return `+${cleaned[0]} (${cleaned.substring(1, 4)}) ${cleaned.substring(4, 7)}-${cleaned.substring(7, 9)}-${cleaned.substring(9, 11)}`;
+            } else if (cleaned.length === 10) {
+                return `+7 (${cleaned.substring(0, 3)}) ${cleaned.substring(3, 6)}-${cleaned.substring(6, 8)}-${cleaned.substring(8, 10)}`;
+            }
+            
+            return phone;
+        }
+        
+        // Отображаем информацию о том, куда отправлен код
+        if (tempData.value) {
+            const formattedValue = tempData.type === 'phone' ? formatPhoneNumber(tempData.value) : tempData.value;
+            verifyInfo.innerHTML = `
+                <p style="color: white; font-size: 18px; text-align: center;">
+                    Код подтверждения отправлен ${tempData.type === 'phone' ? 'на номер' : 'на email'}<br>
+                    <strong style="color: #0000FF; font-size: 24px;">${formattedValue}</strong>
+                </p>
+            `;
+        } else {
+            window.location.href = 'login.html';
+            return;
+        }
+        
+        const form = document.getElementById('verifyForm');
+        const codeInput = document.getElementById('code');
+        const codeError = document.getElementById('code-error');
+        const codeErrorText = codeError.querySelector('.error-text');
+        
+        // Функция для отображения ошибки
+        function showError(message) {
+            codeInput.classList.add('error');
+            codeInput.classList.remove('success');
+            codeErrorText.textContent = message;
+            
+            setTimeout(() => {
+                codeError.classList.add('show');
+            }, 10);
+            
+            setTimeout(() => {
+                codeError.classList.remove('show');
+            }, 3000);
+        }
+        
+        function hideError() {
+            codeError.classList.remove('show');
+        }
+        
+        function showSuccess() {
+            codeInput.classList.remove('error');
+            codeInput.classList.add('success');
+            hideError();
+        }
+        
+        // Валидация кода
+        function validateCode() {
+            const value = codeInput.value.trim();
+            
+            if (value === '') {
+                showError('Пожалуйста, введите код подтверждения');
+                return false;
+            }
+            
+            if (!/^\d+$/.test(value)) {
+                showError('Код должен содержать только цифры');
+                return false;
+            }
+            
+            if (value.length !== 6) {
+                showError('Код должен содержать 6 цифр');
+                return false;
+            }
+            
+            showSuccess();
+            return true;
+        }
+        
+        // Обработчики событий для поля ввода кода
+        if (codeInput) {
+            codeInput.addEventListener('blur', validateCode);
+            codeInput.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    this.classList.remove('error');
+                    hideError();
+                }
+                
+                if (this.value.length === 6 && /^\d+$/.test(this.value)) {
+                    this.classList.add('success');
+                } else {
+                    this.classList.remove('success');
+                }
+            });
+            codeInput.addEventListener('focus', function() {
+                hideError();
+            });
+        }
+        
+        // Обработка отправки формы
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateCode()) {
+                    return;
+                }
+                
+                // Для демо любой 6-значный код подходит
+                const userData = {
+                    fullname: 'Стариков Владислав Викторович',
+                    email: tempData.type === 'email' ? tempData.value : 'starikovvladislav.17@gmail.com',
+                    phone: tempData.type === 'phone' ? tempData.value : '+79505362276',
+                    verifiedAt: new Date().toISOString(),
+                    verifiedVia: tempData.type
+                };
+                
+                if (typeof login === 'function') {
+                    login(userData);
+                    console.log('Пользователь подтвердил вход:', userData);
+                }
+                
+                localStorage.removeItem('tempLoginData');
+                window.location.href = 'profile.html';
+            });
+        }
+    });
+</script>
+    
+    <style>
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+    </style>
+</body>
+</html>

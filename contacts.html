@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <title>Контакты - Сети и телекоммуникации</title>
+</head>
+<body>
+<header class="header">
+    <div class="header-container">
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="img/logo.png" alt="Логотип">
+        </a>
+        
+        <nav class="menu">
+            <a class="menu-item" href="index.html">Главная</a>
+            <a class="menu-item" href="about-course.html">О курсе</a>
+            <a class="menu-item" href="contacts.html">Контакты</a>
+            <a class="menu-item" href="reviews.html">Отзывы</a>
+        </nav>
+        
+        <div class="header-actions">
+            <a href="register.html" class="cabinet">
+                <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+            </a>
+            <a href="Korzina.html" class="cart-link">
+                <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                <span class="cart-badge" id="header-cart-counter">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <!-- Герой-секция страницы контактов -->
+    <section class="contacts-hero-section">
+        <div class="contacts-hero-content">
+            <h1 class="contacts-hero-title">ОБРАТНАЯ СВЯЗЬ</h1>
+        </div>
+    </section>
+
+<!-- Форма обратной связи -->
+<section class="contact-form-section">
+    <div class="contact-form-container">
+        <!-- ВСТАВЛЯЕМ ВАШ Formspree URL -->
+        <form class="contact-form" id="feedbackForm" action="https://formspree.io/f/xojwvvjr" method="POST">
+            <!-- Скрытые поля для Formspree -->
+            <input type="hidden" name="_replyto" value="starikovvladislav.17@gmail.com">
+            <input type="hidden" name="_subject" value="Новое сообщение с сайта Сети и телекоммуникации">
+            <input type="hidden" name="_language" value="ru">
+            
+            <!-- Поле 1: Ваше ФИО -->
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="fullname" 
+                        name="Имя" 
+                        class="form-input"
+                        placeholder="Ваше ФИО"
+                        required
+                    >
+                    <div class="error-plate" id="fullname-error">
+                        <span class="error-text"></span>
+                        <div class="error-arrow"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Поле 2: Телефон или Email -->
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="contact" 
+                        name="Контакт" 
+                        class="form-input"
+                        placeholder="Телефон или Email"
+                        required
+                    >
+                    <div class="error-plate" id="contact-error">
+                        <span class="error-text"></span>
+                        <div class="error-arrow"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Поле 3: Ваше сообщение -->
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="message" 
+                        name="Сообщение" 
+                        class="form-textarea"
+                        placeholder="Ваше сообщение"
+                        rows="4"
+                        required
+                    ></textarea>
+                    <div class="error-plate" id="message-error">
+                        <span class="error-text"></span>
+                        <div class="error-arrow"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Кнопка отправки -->
+            <div class="form-group submit-group">
+                <button type="submit" class="submit-btn">Отправить</button>
+            </div>
+        </form>
+        
+        <!-- Контейнер для сообщения об успехе (изначально скрыт) -->
+        <div id="form-success" style="display: none; margin-top: 50px;">
+            <!-- Будет заполняться через JavaScript -->
+        </div>
+    </div>
+</section>
+</main>
+
+            <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Верхний блок футера -->
+            <div class="footer-top">
+                <div class="footer-content">
+                    <!-- Логотип -->
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    
+                    <!-- Навигация -->
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    
+                    <!-- Социальные сети -->
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Линия разделитель -->
+            <div class="footer-line"></div>
+            
+            <!-- Нижний блок футера -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <!-- Копирайт -->
+                    <div class="footer-copyright">
+                        ©2025 Сети и телекоммуникации. Все права защищены.
+                    </div>
+                    
+                    <!-- Политика конфиденциальности -->
+                    <div class="footer-policy">
+                        <a href="#" class="policy-link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+<script src="cart.js"></script>
+<script>
+// Функция для определения активной страницы
+function setActiveNavLink() {
+    // Получаем текущий URL
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop();
+    
+    // Определяем активную страницу
+    let activePage = 'index.html'; // по умолчанию
+    
+    if (currentPage === '' || currentPage === 'index.html') {
+        activePage = 'index.html';
+    } else if (currentPage === 'about-course.html') {
+        activePage = 'about-course.html';
+    } else if (currentPage === 'contacts.html') {
+        activePage = 'contacts.html';
+    } else if (currentPage === 'reviews.html') {
+        activePage = 'reviews.html';
+    } else if (currentPage === 'cabinet.html') {
+        activePage = 'cabinet.html';
+    }
+    
+    // Находим все ссылки в хедере
+    const headerLinks = document.querySelectorAll('.menu-item');
+    headerLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === activePage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+    
+    // Находим все ссылки в футере
+    const footerLinks = document.querySelectorAll('.footer-nav-link');
+    footerLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === activePage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// Запускаем при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    setActiveNavLink();
+    
+    // ВАЛИДАЦИЯ И ОТПРАВКА ФОРМЫ КОНТАКТОВ
+    const form = document.getElementById('feedbackForm');
+    if (!form) return; // Если формы нет на странице, выходим
+    
+    const fullnameInput = document.getElementById('fullname');
+    const contactInput = document.getElementById('contact');
+    const messageInput = document.getElementById('message');
+    const submitBtn = document.querySelector('.submit-btn');
+    const formSuccess = document.getElementById('form-success');
+    
+    // Элементы для плашек с ошибками
+    const fullnameErrorPlate = document.getElementById('fullname-error');
+    const contactErrorPlate = document.getElementById('contact-error');
+    const messageErrorPlate = document.getElementById('message-error');
+    
+    // Текстовые элементы внутри плашек
+    const fullnameErrorText = fullnameErrorPlate ? fullnameErrorPlate.querySelector('.error-text') : null;
+    const contactErrorText = contactErrorPlate ? contactErrorPlate.querySelector('.error-text') : null;
+    const messageErrorText = messageErrorPlate ? messageErrorPlate.querySelector('.error-text') : null;
+    
+    // Регулярные выражения
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,20}$/;
+    const nameRegex = /^[а-яА-ЯёЁa-zA-Z\s]{2,50}$/;
+    
+    // Функция для отображения ошибки
+    function showError(inputElement, errorPlate, errorTextElement, message) {
+        if (!inputElement || !errorPlate || !errorTextElement) return;
+        
+        inputElement.classList.add('error');
+        inputElement.classList.remove('success');
+        errorTextElement.textContent = message;
+        
+        setTimeout(() => {
+            errorPlate.classList.add('show');
+        }, 10);
+        
+        setTimeout(() => {
+            hideError(errorPlate);
+        }, 5000);
+    }
+    
+    function hideError(errorPlate) {
+        if (!errorPlate) return;
+        errorPlate.classList.remove('show');
+    }
+    
+    function showSuccess(inputElement, errorPlate) {
+        if (!inputElement || !errorPlate) return;
+        inputElement.classList.remove('error');
+        inputElement.classList.add('success');
+        hideError(errorPlate);
+    }
+    
+    // Валидация ФИО
+    function validateFullname() {
+        if (!fullnameInput || !fullnameErrorPlate || !fullnameErrorText) return false;
+        
+        const value = fullnameInput.value.trim();
+        
+        if (value === '') {
+            showError(fullnameInput, fullnameErrorPlate, fullnameErrorText, 'Пожалуйста, введите ваше ФИО');
+            return false;
+        }
+        
+        if (!nameRegex.test(value)) {
+            showError(fullnameInput, fullnameErrorPlate, fullnameErrorText, 'ФИО должно содержать только буквы (2-50 символов)');
+            return false;
+        }
+        
+        showSuccess(fullnameInput, fullnameErrorPlate);
+        return true;
+    }
+    
+    // Валидация контакта
+    function validateContact() {
+        if (!contactInput || !contactErrorPlate || !contactErrorText) return false;
+        
+        const value = contactInput.value.trim();
+        
+        if (value === '') {
+            showError(contactInput, contactErrorPlate, contactErrorText, 'Пожалуйста, введите телефон или email');
+            return false;
+        }
+        
+        if (emailRegex.test(value)) {
+            showSuccess(contactInput, contactErrorPlate);
+            return true;
+        }
+        
+        const cleanPhone = value.replace(/\s|-|\(|\)/g, '');
+        if (phoneRegex.test(cleanPhone)) {
+            showSuccess(contactInput, contactErrorPlate);
+            return true;
+        }
+        
+        showError(contactInput, contactErrorPlate, contactErrorText, 'Введите корректный телефон (10-20 цифр) или email');
+        return false;
+    }
+    
+    // Валидация сообщения
+    function validateMessage() {
+        if (!messageInput || !messageErrorPlate || !messageErrorText) return false;
+        
+        const value = messageInput.value.trim();
+        
+        if (value === '') {
+            showError(messageInput, messageErrorPlate, messageErrorText, 'Пожалуйста, введите ваше сообщение');
+            return false;
+        }
+        
+        if (value.length < 10) {
+            showError(messageInput, messageErrorPlate, messageErrorText, 'Сообщение должно содержать минимум 10 символов');
+            return false;
+        }
+        
+        showSuccess(messageInput, messageErrorPlate);
+        return true;
+    }
+    
+    // Валидация всей формы
+    function validateForm() {
+        const isFullnameValid = validateFullname();
+        const isContactValid = validateContact();
+        const isMessageValid = validateMessage();
+        
+        return isFullnameValid && isContactValid && isMessageValid;
+    }
+    
+    // Обработчики событий для валидации
+    if (fullnameInput) {
+        fullnameInput.addEventListener('blur', validateFullname);
+        fullnameInput.addEventListener('input', function() {
+            if (this.classList.contains('error')) {
+                validateFullname();
+            }
+        });
+        fullnameInput.addEventListener('focus', function() {
+            hideError(fullnameErrorPlate);
+        });
+    }
+    
+    if (contactInput) {
+        contactInput.addEventListener('blur', validateContact);
+        contactInput.addEventListener('input', function() {
+            if (this.classList.contains('error')) {
+                validateContact();
+            }
+        });
+        contactInput.addEventListener('focus', function() {
+            hideError(contactErrorPlate);
+        });
+    }
+    
+    if (messageInput) {
+        messageInput.addEventListener('blur', validateMessage);
+        messageInput.addEventListener('input', function() {
+            if (this.classList.contains('error')) {
+                validateMessage();
+            }
+        });
+        messageInput.addEventListener('focus', function() {
+            hideError(messageErrorPlate);
+        });
+    }
+    
+    // Обработчик отправки формы
+    if (form && submitBtn) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Проверяем валидацию
+            if (!validateForm()) {
+                const firstError = document.querySelector('.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+            
+            // Показываем состояние загрузки
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            
+            try {
+                // Отправляем данные на Formspree
+                const formData = new FormData(form);
+                
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Успешная отправка
+                    form.reset();
+                    
+                    // Скрываем форму
+                    form.style.display = 'none';
+                    
+                    // Показываем сообщение об успехе
+                    showSuccessMessage();
+                    
+                    // Убираем классы с полей
+                    if (fullnameInput) fullnameInput.classList.remove('success', 'error');
+                    if (contactInput) contactInput.classList.remove('success', 'error');
+                    if (messageInput) messageInput.classList.remove('success', 'error');
+                    
+                    // Скрываем все ошибки
+                    if (fullnameErrorPlate) hideError(fullnameErrorPlate);
+                    if (contactErrorPlate) hideError(contactErrorPlate);
+                    if (messageErrorPlate) hideError(messageErrorPlate);
+                    
+                } else {
+                    throw new Error('Ошибка отправки');
+                }
+                
+            } catch (error) {
+                console.error('Ошибка:', error);
+                
+                // Показываем сообщение об ошибке
+                showErrorMessage();
+                
+            } finally {
+                // Возвращаем кнопку в исходное состояние
+                submitBtn.textContent = 'Отправить';
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
+    // Функция показа сообщения об успехе
+    function showSuccessMessage() {
+        if (!formSuccess) return;
+        
+        formSuccess.style.display = 'block';
+        formSuccess.innerHTML = `
+            <div class="success-container">
+                <div class="success-icon">✓</div>
+                <h2 class="success-title">Сообщение отправлено!</h2>
+                <p class="success-text">
+                    Спасибо за ваше сообщение!<br>
+                    Я свяжусь с вами в ближайшее время.
+                </p>
+                <button class="success-btn" onclick="location.reload()">
+                    Отправить еще одно сообщение
+                </button>
+            </div>
+        `;
+        
+        // Прокручиваем к сообщению об успехе
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    
+    // Функция показа сообщения об ошибке
+    function showErrorMessage() {
+        // Создаем временное сообщение об ошибке
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message-global';
+        errorMessage.innerHTML = `
+            <div style="
+                background-color: #ff4444;
+                color: white;
+                padding: 20px 30px;
+                border-radius: 10px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                text-align: center;
+                max-width: 500px;
+                margin: 0 auto;
+                animation: fadeIn 0.5s ease;
+            ">
+                ⚠️ Ошибка отправки.<br>
+                Пожалуйста, попробуйте еще раз или свяжитесь другим способом.
+            </div>
+        `;
+        
+        // Вставляем перед формой
+        if (form && form.parentNode) {
+            form.parentNode.insertBefore(errorMessage, form);
+        }
+        
+        // Удаляем через 5 секунд
+        setTimeout(() => {
+            if (errorMessage.parentNode) {
+                errorMessage.parentNode.removeChild(errorMessage);
+            }
+        }, 5000);
+    }
+    
+    // Добавляем анимацию
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-container {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .error-message-global {
+            animation: fadeIn 0.5s ease;
+            margin-bottom: 30px;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Проверяем, была ли форма успешно отправлена (возврат с Formspree)
+    if (window.location.search.includes('success=true')) {
+        showFormSuccess();
+    }
+    
+    // Функция показа успеха при возврате с Formspree
+    function showFormSuccess() {
+        if (!form || !formSuccess) return;
+        
+        // Скрываем форму
+        form.style.display = 'none';
+        
+        // Показываем сообщение об успехе
+        formSuccess.style.display = 'block';
+        
+        // Создаем красивый блок успеха
+        const successHTML = `
+            <div class="success-container" style="
+                text-align: center;
+                padding: 60px 20px;
+                background-color: rgba(68, 255, 68, 0.1);
+                border: 2px solid #44ff44;
+                border-radius: 20px;
+                max-width: 700px;
+                margin: 0 auto;
+            ">
+                <div style="
+                    font-size: 48px;
+                    color: #44ff44;
+                    margin-bottom: 30px;
+                ">✓</div>
+                <h2 style="
+                    color: white;
+                    font-size: 32px;
+                    font-family: 'Montserrat', sans-serif;
+                    margin-bottom: 20px;
+                ">Сообщение отправлено!</h2>
+                <p style="
+                    color: rgba(255, 255, 255, 0.9);
+                    font-size: 20px;
+                    font-family: 'Montserrat', sans-serif;
+                    line-height: 1.5;
+                    margin-bottom: 30px;
+                ">Спасибо за ваше сообщение! Я свяжусь с вами в ближайшее время.</p>
+                <button onclick="location.reload()" style="
+                    background-color: #0000FF;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 18px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-family: 'Montserrat', sans-serif;
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(0,0,255,0.3)'" 
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    Отправить еще одно сообщение
+                </button>
+            </div>
+        `;
+        
+        formSuccess.innerHTML = successHTML;
+    }
+});
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины при загрузке любой страницы
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+    });
+    </script>
+    </body>
+    </html>

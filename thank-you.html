@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Спасибо за покупку - Сети и телекоммуникации</title>
+</head>
+<body>
+    <!-- Хедер (прозрачный, как на странице контактов) -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="img/logo.png" alt="Логотип">
+            </a>
+            
+            <nav class="menu">
+                <a class="menu-item" href="index.html">Главная</a>
+                <a class="menu-item" href="about-course.html">О курсе</a>
+                <a class="menu-item" href="contacts.html">Контакты</a>
+                <a class="menu-item" href="reviews.html">Отзывы</a>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="register.html" class="cabinet">
+                    <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+                </a>
+                <a href="Korzina.html" class="cart-link">
+                    <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                    <span class="cart-badge" id="header-cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Страница благодарности -->
+        <section class="thank-you-section">
+            <div class="thank-you-container">
+                <!-- Сообщение об успехе -->
+                <div class="success-container">
+                    <div class="success-icon">✓</div>
+                    <h1 class="success-title">Спасибо за покупку!</h1>
+                    <p class="success-text">
+                        Ваш заказ успешно оформлен.<br>
+                        На указанную почту придет письмо с деталями заказа.
+                    </p>
+                    
+                    <!-- Кнопка возврата на главную -->
+                    <a href="index.html" class="back-home-btn">
+                        <span class="btn-text">Вернуться на главную</span>
+                        <div class="btn-ellipse">
+                            <svg class="btn-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-content">
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-line"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        ©2025 Сети и телекоммуникации. Все права защищены.
+                    </div>
+                    
+                    <div class="footer-policy">
+                        <a href="#" class="policy-link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="cart.js"></script>
+    <script>
+        // Функция для определения активной страницы
+        function setActiveNavLink() {
+            document.querySelectorAll('.menu-item').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.footer-nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+        }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                setActiveNavLink();
+                // Явно обновляем счетчик корзины
+                if (typeof updateAllCartCounters === 'function') {
+                    updateAllCartCounters();
+                }
+                console.log('Страница благодарности загружена');
+            });
+
+                document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины при загрузке любой страницы
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+    });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        setActiveNavLink();
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters(); // Обновляем счетчик
+        }
+        console.log('Страница благодарности загружена');
+    });
+    </script>
+</body>
+</html>
