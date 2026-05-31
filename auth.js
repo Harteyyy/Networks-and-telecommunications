@@ -2,11 +2,7 @@
 // ГЛОБАЛЬНАЯ ЛОГИКА АВТОРИЗАЦИИ
 // ===========================================
 
-function initAuth() {
-    validateAndFixAuth();  // <-- добавить эту строку
-    const authData = localStorage.getItem('userAuth');
-    // ... остальной код
-}
+
 
 // Ключ для хранения состояния авторизации
 const AUTH_STORAGE_KEY = 'userAuth';
@@ -176,22 +172,5 @@ function updateAdminLink() {
 // Вызвать эту функцию после login
 
 
-
-// Проверка и очистка повреждённых данных
-function validateAndFixAuth() {
-    const authData = localStorage.getItem('userAuth');
-    if (!authData) return;
-    
-    try {
-        const parsed = JSON.parse(authData);
-        if (!parsed.user || typeof parsed.user !== 'object') {
-            console.warn('Повреждённые данные — очищаем');
-            localStorage.removeItem('userAuth');
-        }
-    } catch(e) {
-        console.error('Ошибка парсинга — очищаем');
-        localStorage.removeItem('userAuth');
-    }
-}
 
 
