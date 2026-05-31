@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Редактирование профиля - Сети и телекоммуникации</title>
+</head>
+<body>
+    <!-- Хедер -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="img/logo.png" alt="Логотип">
+            </a>
+            
+            <nav class="menu">
+                <a class="menu-item" href="index.html">Главная</a>
+                <a class="menu-item" href="about-course.html">О курсе</a>
+                <a class="menu-item" href="contacts.html">Контакты</a>
+                <a class="menu-item" href="reviews.html">Отзывы</a>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="profile.html" class="cabinet">
+                    <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+                </a>
+                <a href="Korzina.html" class="cart-link">
+                    <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                    <span class="cart-badge" id="header-cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="profile-section">
+            <div class="profile-container">
+                <!-- Фотография пользователя (кликабельная) -->
+                <div class="profile-photo edit-photo" id="profilePhoto">
+                    <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+                    <div class="photo-overlay" id="photoOverlay">
+                        <span class="photo-change-text">Изменить фото</span>
+                    </div>
+                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="80" r="50" stroke="white" stroke-width="3" fill="none"/>
+                        <path d="M180 190C180 150 150 120 100 120C50 120 20 150 20 190" stroke="white" stroke-width="3" fill="none"/>
+                    </svg>
+                </div>
+                
+                <!-- Данные пользователя (редактируемые) -->
+                <div class="profile-data" id="profileData">
+                    <!-- Блок Имя -->
+                    <div class="profile-data-block edit-block">
+                        <h2 class="profile-data-title">Имя</h2>
+                        <input type="text" class="profile-data-input" id="editName" value="Стариков Владислав Викторович">
+                        <div class="input-underline active"></div>
+                    </div>
+                    
+                    <!-- Блок Почта -->
+                    <div class="profile-data-block edit-block">
+                        <h2 class="profile-data-title">Почта</h2>
+                        <input type="email" class="profile-data-input" id="editEmail" value="starikovvladislav.17@gmail.com">
+                        <div class="input-underline active"></div>
+                    </div>
+                    
+                    <!-- Блок Телефон -->
+                    <div class="profile-data-block edit-block">
+                        <h2 class="profile-data-title">Телефон</h2>
+                        <input type="tel" class="profile-data-input" id="editPhone" value="+79505362276">
+                        <div class="input-underline active"></div>
+                    </div>
+                    
+                    <!-- Кнопка "Применить изменения" -->
+                    <div class="profile-buttons">
+                        <button class="profile-btn profile-apply-btn" id="applyBtn">Применить изменения</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-content">
+                    <img src="img/logo.svg" alt="Логотип" class="footer-logo">
+                    
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-link">Главная</a>
+                        <a href="about-course.html" class="footer-nav-link">О курсе</a>
+                        <a href="contacts.html" class="footer-nav-link">Контакты</a>
+                        <a href="reviews.html" class="footer-nav-link">Отзывы</a>
+                    </nav>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <img src="img/vk.svg" alt="ВКонтакте" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/tg.svg" alt="Телеграм" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/ot.svg" alt="Одноклассники" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link">
+                            <img src="img/yt.svg" alt="YouTube" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-line"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        ©2025 Сети и телекоммуникации. Все права защищены.
+                    </div>
+                    
+                    <div class="footer-policy">
+                        <a href="#" class="policy-link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Обновляем счетчик корзины
+            if (typeof updateAllCartCounters === 'function') {
+                updateAllCartCounters();
+            }
+            
+            // Проверяем авторизацию
+            if (typeof checkAuth !== 'function' || !checkAuth()) {
+                window.location.href = 'register.html';
+                return;
+            }
+            
+            // Функция отображения сообщения
+            function showMessage(text, bgColor) {
+                const message = document.createElement('div');
+                message.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: ${bgColor};
+                    color: ${bgColor === '#44ff44' ? 'black' : 'white'};
+                    padding: 15px 30px;
+                    border-radius: 10px;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 16px;
+                    z-index: 1000;
+                    animation: slideDown 0.3s ease;
+                `;
+                message.textContent = text;
+                document.body.appendChild(message);
+                setTimeout(() => message.remove(), 2000);
+            }
+            
+            // Получаем данные пользователя
+            const user = getCurrentUser();
+            
+            // Заполняем поля данными пользователя
+            const nameInput = document.getElementById('editName');
+            const emailInput = document.getElementById('editEmail');
+            const phoneInput = document.getElementById('editPhone');
+            
+            if (user) {
+                if (nameInput && user.fullname) nameInput.value = user.fullname;
+                if (emailInput && user.email) emailInput.value = user.email;
+                if (phoneInput && user.phone) phoneInput.value = user.phone;
+                
+                // Если есть сохраненное фото, отображаем его
+                if (user.photo) {
+                    const profilePhoto = document.getElementById('profilePhoto');
+                    const svg = profilePhoto.querySelector('svg');
+                    let img = profilePhoto.querySelector('img');
+                    if (!img) {
+                        img = document.createElement('img');
+                        img.className = 'profile-photo-img';
+                        if (svg) svg.remove();
+                        profilePhoto.appendChild(img);
+                    }
+                    img.src = user.photo;
+                }
+            }
+            
+            // ===========================================
+            // РЕДАКТИРОВАНИЕ ФОТОГРАФИИ
+            // ===========================================
+            
+            const profilePhoto = document.getElementById('profilePhoto');
+            const photoUpload = document.getElementById('photoUpload');
+            
+            if (profilePhoto && photoUpload) {
+                profilePhoto.addEventListener('click', function() {
+                    photoUpload.click();
+                });
+                
+                photoUpload.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            const profilePhoto = document.getElementById('profilePhoto');
+                            const svg = profilePhoto.querySelector('svg');
+                            let img = profilePhoto.querySelector('img');
+                            
+                            if (!img) {
+                                img = document.createElement('img');
+                                img.className = 'profile-photo-img';
+                                if (svg) svg.remove();
+                                profilePhoto.appendChild(img);
+                            }
+                            img.src = event.target.result;
+                            window.tempPhoto = event.target.result;
+                            
+                            // Анимация кнопки
+                            const applyBtn = document.getElementById('applyBtn');
+                            applyBtn.style.animation = 'pulse 1s ease infinite';
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+            
+            // ===========================================
+            // КНОПКА "ПРИМЕНИТЬ ИЗМЕНЕНИЯ"
+            // ===========================================
+            
+            const applyBtn = document.getElementById('applyBtn');
+            
+            if (applyBtn) {
+                applyBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const nameValue = nameInput.value.trim();
+                    const emailValue = emailInput.value.trim();
+                    const phoneValue = phoneInput.value.trim();
+                    
+                    // Проверяем, были ли изменения
+                    const hasChanges = (user && (
+                        nameValue !== user.fullname ||
+                        emailValue !== user.email ||
+                        phoneValue !== user.phone ||
+                        window.tempPhoto
+                    ));
+                    
+                    if (!hasChanges) {
+                        showMessage('Нет изменений для сохранения', '#ff4444');
+                        return;
+                    }
+                    
+                    // Получаем текущего пользователя
+                    let currentUser = getCurrentUser();
+                    if (!currentUser) currentUser = {};
+                    
+                    // Обновляем данные
+                    currentUser.fullname = nameValue;
+                    currentUser.email = emailValue;
+                    currentUser.phone = phoneValue;
+                    if (window.tempPhoto) {
+                        currentUser.photo = window.tempPhoto;
+                    }
+                    
+                    // Сохраняем в текущую сессию
+                    if (typeof login === 'function') {
+                        login(currentUser);
+                        console.log('Пользователь обновлен:', currentUser);
+                    }
+                    
+                    // Обновляем в общем списке registeredUsers
+                    let users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+                    // Ищем по email (старому) или по новому
+                    let index = users.findIndex(u => u.email === (user ? user.email : emailValue));
+                    if (index === -1) {
+                        index = users.findIndex(u => u.phone === (user ? user.phone : phoneValue));
+                    }
+                    
+                    if (index !== -1) {
+                        users[index].fullname = nameValue;
+                        users[index].email = emailValue;
+                        users[index].phone = phoneValue;
+                        if (window.tempPhoto) {
+                            users[index].photo = window.tempPhoto;
+                        }
+                        localStorage.setItem('registeredUsers', JSON.stringify(users));
+                    }
+                    
+                    showMessage('Изменения успешно сохранены', '#44ff44');
+                    
+                    // Сбрасываем флаги
+                    window.tempPhoto = null;
+                    applyBtn.style.animation = 'none';
+                    
+                    // Перенаправляем на страницу профиля
+                    setTimeout(() => {
+                        window.location.href = 'profile.html';
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+    
+    <style>
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .input-underline {
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            margin-top: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .input-underline.active {
+            background-color: white;
+        }
+        
+        .profile-photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .edit-photo {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+        
+        .edit-photo:hover .photo-overlay {
+            opacity: 1;
+        }
+        
+        .photo-change-text {
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+            padding: 0 20px;
+        }
+    </style>
+</body>
+</html>
