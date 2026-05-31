@@ -179,263 +179,214 @@
         </div>
     </footer>
 
-    <script src="cart.js"></script>
-    <script src="auth.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Обновляем счетчик корзины
-            if (typeof updateAllCartCounters === 'function') {
-                updateAllCartCounters();
+    
+ <script src="cart.js"></script>
+<script src="auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обновляем счетчик корзины
+        if (typeof updateAllCartCounters === 'function') {
+            updateAllCartCounters();
+        }
+        
+        // Проверяем авторизацию
+        if (typeof checkAuth !== 'function' || !checkAuth()) {
+            console.log('Пользователь не авторизован, перенаправление на регистрацию');
+            window.location.href = 'register.html';
+            return;
+        }
+        
+        // Получаем данные пользователя
+        const user = getCurrentUser();
+        console.log('Текущий пользователь:', user);
+        
+        // Если нет пользователя в localStorage, но checkAuth вернул true — что-то не так
+        if (!user) {
+            console.log('Данные пользователя не найдены');
+            window.location.href = 'register.html';
+            return;
+        }
+        
+        // Обновляем данные на странице
+        const nameElement = document.getElementById('profileName');
+        const emailElement = document.getElementById('profileEmail');
+        const phoneElement = document.getElementById('profilePhone');
+        const profilePhoto = document.getElementById('profilePhoto');
+        
+        if (nameElement && user.fullname) {
+            nameElement.textContent = user.fullname;
+        }
+        if (emailElement && user.email) {
+            emailElement.textContent = user.email;
+        }
+        if (phoneElement && user.phone) {
+            let phone = user.phone;
+            const cleaned = phone.replace(/\s|-|\(|\)/g, '');
+            if (cleaned.length === 11 && (cleaned[0] === '7' || cleaned[0] === '8')) {
+                const countryCode = cleaned[0] === '8' ? '7' : cleaned[0];
+                phone = `+${countryCode} (${cleaned.substring(1, 4)}) ${cleaned.substring(4, 7)}-${cleaned.substring(7, 9)}-${cleaned.substring(9, 11)}`;
+            } else if (cleaned.length === 10) {
+                phone = `+7 (${cleaned.substring(0, 3)}) ${cleaned.substring(3, 6)}-${cleaned.substring(6, 8)}-${cleaned.substring(8, 10)}`;
             }
+            phoneElement.textContent = phone;
+        }
+        
+        // Если есть сохраненное фото
+        if (user.photo && profilePhoto) {
+            const svg = profilePhoto.querySelector('svg');
+            let img = profilePhoto.querySelector('img');
+            if (!img) {
+                img = document.createElement('img');
+                img.className = 'profile-photo-img';
+                if (svg) svg.remove();
+                profilePhoto.appendChild(img);
+            }
+            img.src = user.photo;
+        }
+        
+        // Загружаем купленные курсы
+        if (typeof getUserPurchasedCourses === 'function') {
+            const purchasedCourses = getUserPurchasedCourses();
+            console.log('Купленные курсы:', purchasedCourses);
             
-            // Проверяем авторизацию
-            if (typeof checkAuth !== 'function' || !checkAuth()) {
-                window.location.href = 'register.html';
+            const currentCourses = purchasedCourses.filter(c => !c.completed);
+            const completedCourses = purchasedCourses.filter(c => c.completed);
+            
+            renderCurrentModules(currentCourses);
+            renderCompletedModules(completedCourses);
+        }
+        
+        // Функции рендера (объявляем их здесь, чтобы они были доступны)
+        function renderCurrentModules(courses) {
+            const container = document.getElementById('current-modules-slider');
+            if (!container) return;
+            if (courses.length === 0) {
+                container.innerHTML = '<div style="color: white; text-align: center; padding: 40px;">У вас нет активных курсов. Приобретите курс в каталоге!</div>';
                 return;
             }
-            
-            // Получаем данные пользователя
-            const user = getCurrentUser();
-            
-            // Обновляем данные на странице
-            if (user) {
-                const nameElement = document.getElementById('profileName');
-                const emailElement = document.getElementById('profileEmail');
-                const phoneElement = document.getElementById('profilePhone');
-                const profilePhoto = document.getElementById('profilePhoto');
-                
-                if (nameElement && user.fullname) {
-                    nameElement.textContent = user.fullname;
-                }
-                if (emailElement && user.email) {
-                    emailElement.textContent = user.email;
-                }
-                if (phoneElement && user.phone) {
-                    let phone = user.phone;
-                    const cleaned = phone.replace(/\s|-|\(|\)/g, '');
-                    if (cleaned.length === 11 && (cleaned[0] === '7' || cleaned[0] === '8')) {
-                        const countryCode = cleaned[0] === '8' ? '7' : cleaned[0];
-                        phone = `+${countryCode} (${cleaned.substring(1, 4)}) ${cleaned.substring(4, 7)}-${cleaned.substring(7, 9)}-${cleaned.substring(9, 11)}`;
-                    } else if (cleaned.length === 10) {
-                        phone = `+7 (${cleaned.substring(0, 3)}) ${cleaned.substring(3, 6)}-${cleaned.substring(6, 8)}-${cleaned.substring(8, 10)}`;
-                    }
-                    phoneElement.textContent = phone;
-                }
-                
-                // Если есть сохраненное фото, отображаем его
-                if (user.photo && profilePhoto) {
-                    const svg = profilePhoto.querySelector('svg');
-                    let img = profilePhoto.querySelector('img');
-                    if (!img) {
-                        img = document.createElement('img');
-                        img.className = 'profile-photo-img';
-                        if (svg) svg.remove();
-                        profilePhoto.appendChild(img);
-                    }
-                    img.src = user.photo;
-                }
-            }
-            
-            // ===========================================
-            // ОТОБРАЖЕНИЕ КУПЛЕННЫХ КУРСОВ
-            // ===========================================
-            
-            function renderCurrentModules(courses) {
-                const container = document.getElementById('current-modules-slider');
-                if (!container) return;
-                
-                if (courses.length === 0) {
-                    container.innerHTML = '<div style="color: white; text-align: center; padding: 40px;">У вас нет активных курсов. Приобретите курс в каталоге!</div>';
-                    return;
-                }
-                
-                let html = '';
-                courses.forEach(course => {
-                    html += `
-                        <div class="module-card-slide">
-                            <img src="img/${course.image}" alt="${course.name}" class="module-card-image">
-                            <div class="module-card-rectangle">
-                                <span class="module-card-title">${course.name}</span>
-                            </div>
-                            <a href="lesson-${course.id}-1.html" class="module-card-btn">Перейти к уроку</a>
+            let html = '';
+            courses.forEach(course => {
+                html += `
+                    <div class="module-card-slide">
+                        <img src="img/${course.image}" alt="${course.name}" class="module-card-image">
+                        <div class="module-card-rectangle">
+                            <span class="module-card-title">${course.name}</span>
                         </div>
-                    `;
-                });
-                container.innerHTML = html;
-            }
-            
-            function renderCompletedModules(courses) {
-                const container = document.getElementById('completed-modules-slider');
-                if (!container) return;
-                
-                if (courses.length === 0) {
-                    container.innerHTML = '<div style="color: white; text-align: center; padding: 40px;">Нет пройденных курсов</div>';
-                    return;
-                }
-                
-                let html = '';
-                courses.forEach(course => {
-                    html += `
-                        <div class="module-card-slide">
-                            <img src="img/${course.image}" alt="${course.name}" class="module-card-image">
-                            <div class="module-card-rectangle">
-                                <span class="module-card-title">${course.name}</span>
-                            </div>
-                            <a href="lesson-${course.id}-1.html" class="module-card-btn">Пройти заново</a>
-                        </div>
-                    `;
-                });
-                container.innerHTML = html;
-            }
-            
-            function loadPurchasedCourses() {
-                if (typeof getUserPurchasedCourses !== 'function') {
-                    console.log('getUserPurchasedCourses не найдена');
-                    return;
-                }
-                
-                const purchasedCourses = getUserPurchasedCourses();
-                console.log('Купленные курсы:', purchasedCourses);
-                
-                const currentCourses = purchasedCourses.filter(c => !c.completed);
-                const completedCourses = purchasedCourses.filter(c => c.completed);
-                
-                renderCurrentModules(currentCourses);
-                renderCompletedModules(completedCourses);
-            }
-            
-            // Загружаем купленные курсы
-            loadPurchasedCourses();
-            
-            // ===========================================
-            // ОБРАБОТКА ВЫХОДА
-            // ===========================================
-            
-            const logoutBtn = document.getElementById('logoutBtn');
-            if (logoutBtn) {
-                logoutBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    if (typeof logout === 'function') {
-                        logout();
-                    }
-                    
-                    const message = document.createElement('div');
-                    message.style.cssText = `
-                        position: fixed;
-                        top: 100px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background-color: #0000FF;
-                        color: white;
-                        padding: 15px 30px;
-                        border-radius: 10px;
-                        font-family: "Montserrat", sans-serif;
-                        font-size: 16px;
-                        z-index: 1000;
-                        animation: slideDown 0.3s ease;
-                    `;
-                    message.textContent = 'Вы успешно вышли из аккаунта';
-                    document.body.appendChild(message);
-                    
-                    setTimeout(() => {
-                        message.remove();
-                        window.location.href = 'login.html';
-                    }, 2000);
-                });
-            }
-            
-            // ===========================================
-            // ПЕРЕКЛЮЧАТЕЛИ МОДУЛЕЙ
-            // ===========================================
-            
-            const moduleTabs = document.querySelectorAll('.module-tab');
-            const currentModules = document.getElementById('current-modules');
-            const completedModules = document.getElementById('completed-modules');
-            
-            if (moduleTabs.length > 0) {
-                moduleTabs.forEach(tab => {
-                    tab.addEventListener('click', function() {
-                        moduleTabs.forEach(t => t.classList.remove('active'));
-                        this.classList.add('active');
-                        const moduleType = this.getAttribute('data-module');
-                        
-                        if (moduleType === 'current') {
-                            currentModules.style.display = 'block';
-                            completedModules.style.display = 'none';
-                            setTimeout(() => {
-                                const slider = document.getElementById('current-modules-slider');
-                                if (slider) slider.scrollLeft = 0;
-                                if (typeof initModuleSlider === 'function') {
-                                    initModuleSlider('current-modules-slider');
-                                }
-                            }, 100);
-                        } else {
-                            currentModules.style.display = 'none';
-                            completedModules.style.display = 'block';
-                            setTimeout(() => {
-                                const slider = document.getElementById('completed-modules-slider');
-                                if (slider) slider.scrollLeft = 0;
-                                if (typeof initModuleSlider === 'function') {
-                                    initModuleSlider('completed-modules-slider');
-                                }
-                            }, 100);
-                        }
-                    });
-                });
-            }
-            
-            // ===========================================
-            // СЛАЙДЕР МОДУЛЕЙ
-            // ===========================================
-            
-            function initModuleSlider(sliderId) {
-                const slider = document.getElementById(sliderId);
-                if (!slider) return;
-                
-                const container = slider.closest('.modules-content');
-                if (!container) return;
-                
-                const prevBtn = container.querySelector('.prev-btn');
-                const nextBtn = container.querySelector('.next-btn');
-                if (!prevBtn || !nextBtn) return;
-                
-                const cardSlide = slider.querySelector('.module-card-slide');
-                if (!cardSlide) return;
-                
-                const cardWidth = cardSlide.offsetWidth;
-                const gap = 40;
-                const scrollAmount = cardWidth + gap;
-                
-                const newPrevBtn = prevBtn.cloneNode(true);
-                const newNextBtn = nextBtn.cloneNode(true);
-                prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
-                nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
-                
-                newPrevBtn.addEventListener('click', () => {
-                    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                });
-                
-                newNextBtn.addEventListener('click', () => {
-                    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                });
-            }
-            
-            function initVisibleSliders() {
-                if (currentModules && currentModules.style.display !== 'none') {
-                    setTimeout(() => initModuleSlider('current-modules-slider'), 200);
-                }
-                if (completedModules && completedModules.style.display !== 'none') {
-                    setTimeout(() => initModuleSlider('completed-modules-slider'), 200);
-                }
-            }
-            
-            initVisibleSliders();
-            window.addEventListener('resize', function() {
-                initVisibleSliders();
+                        <a href="lesson-${course.id}-1.html" class="module-card-btn">Перейти к уроку</a>
+                    </div>
+                `;
             });
-        });
-    </script>
+            container.innerHTML = html;
+        }
+        
+        function renderCompletedModules(courses) {
+            const container = document.getElementById('completed-modules-slider');
+            if (!container) return;
+            if (courses.length === 0) {
+                container.innerHTML = '<div style="color: white; text-align: center; padding: 40px;">Нет пройденных курсов</div>';
+                return;
+            }
+            let html = '';
+            courses.forEach(course => {
+                html += `
+                    <div class="module-card-slide">
+                        <img src="img/${course.image}" alt="${course.name}" class="module-card-image">
+                        <div class="module-card-rectangle">
+                            <span class="module-card-title">${course.name}</span>
+                        </div>
+                        <a href="lesson-${course.id}-1.html" class="module-card-btn">Пройти заново</a>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+        
+        // Обработка выхода
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (typeof logout === 'function') {
+                    logout();
+                }
+                const message = document.createElement('div');
+                message.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: #0000FF;
+                    color: white;
+                    padding: 15px 30px;
+                    border-radius: 10px;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 16px;
+                    z-index: 1000;
+                    animation: slideDown 0.3s ease;
+                `;
+                message.textContent = 'Вы успешно вышли из аккаунта';
+                document.body.appendChild(message);
+                setTimeout(() => {
+                    message.remove();
+                    window.location.href = 'login.html';
+                }, 2000);
+            });
+        }
+        
+        // Переключатели модулей
+        const moduleTabs = document.querySelectorAll('.module-tab');
+        const currentModulesDiv = document.getElementById('current-modules');
+        const completedModulesDiv = document.getElementById('completed-modules');
+        
+        if (moduleTabs.length > 0) {
+            moduleTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    moduleTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    const moduleType = this.getAttribute('data-module');
+                    if (moduleType === 'current') {
+                        currentModulesDiv.style.display = 'block';
+                        completedModulesDiv.style.display = 'none';
+                    } else {
+                        currentModulesDiv.style.display = 'none';
+                        completedModulesDiv.style.display = 'block';
+                    }
+                    setTimeout(() => {
+                        const slider = document.getElementById(moduleType === 'current' ? 'current-modules-slider' : 'completed-modules-slider');
+                        if (slider) slider.scrollLeft = 0;
+                    }, 100);
+                });
+            });
+        }
+        
+        // Инициализация слайдеров
+        function initModuleSlider(sliderId) {
+            const slider = document.getElementById(sliderId);
+            if (!slider) return;
+            const container = slider.closest('.modules-content');
+            if (!container) return;
+            const prevBtn = container.querySelector('.prev-btn');
+            const nextBtn = container.querySelector('.next-btn');
+            if (!prevBtn || !nextBtn) return;
+            const cardSlide = slider.querySelector('.module-card-slide');
+            if (!cardSlide) return;
+            const cardWidth = cardSlide.offsetWidth;
+            const gap = 40;
+            const scrollAmount = cardWidth + gap;
+            const newPrevBtn = prevBtn.cloneNode(true);
+            const newNextBtn = nextBtn.cloneNode(true);
+            prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+            nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+            newPrevBtn.addEventListener('click', () => slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+            newNextBtn.addEventListener('click', () => slider.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
+        }
+        
+        setTimeout(() => {
+            initModuleSlider('current-modules-slider');
+            initModuleSlider('completed-modules-slider');
+        }, 200);
+    });
+</script>
     
     <style>
         @keyframes slideDown {
