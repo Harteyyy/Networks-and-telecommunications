@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+    <title>Админ-панель - Сети и телекоммуникации</title>
+    <style>
+        .admin-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .admin-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        .admin-block {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        .admin-block h2 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .admin-block h3 {
+            color: white;
+            font-size: 22px;
+            margin: 20px 0 15px;
+        }
+        .admin-input {
+            padding: 10px 15px;
+            margin: 5px 10px 5px 0;
+            border-radius: 10px;
+            border: none;
+            font-family: "Montserrat", sans-serif;
+        }
+        .admin-btn {
+            background-color: #0000FF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+            transition: 0.3s;
+        }
+        .admin-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        .admin-danger-btn {
+            background-color: #ff4444;
+        }
+        .user-list, .course-list, .promo-list {
+            margin-top: 15px;
+        }
+        .user-item, .course-item, .promo-item {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .user-info, .course-info {
+            color: white;
+        }
+        .edit-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 20px;
+            z-index: 1000;
+            border: 1px solid white;
+        }
+        .edit-modal input, .edit-modal textarea {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="img/logo.png" alt="Логотип">
+            </a>
+            <nav class="menu">
+                <a class="menu-item" href="index.html">Главная</a>
+                <a class="menu-item" href="about-course.html">О курсе</a>
+                <a class="menu-item" href="contacts.html">Контакты</a>
+                <a class="menu-item" href="reviews.html">Отзывы</a>
+            </nav>
+            <div class="header-actions">
+                <a href="profile.html" class="cabinet">
+                    <img class="kabinet-icon" src="img/kabinet.png" alt="Личный кабинет">
+                </a>
+                <a href="Korzina.html" class="cart-link">
+                    <img class="cart-icon" src="img/korzina.png" alt="Корзина">
+                    <span class="cart-badge" id="header-cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="admin-section">
+            <h1 class="admin-title">👑 Админ-панель</h1>
+            
+            <!-- Статистика -->
+            <div class="admin-block">
+                <h2>📊 Статистика</h2>
+                <div id="stats" style="color: white;"></div>
+            </div>
+            
+            <!-- Управление курсами -->
+            <div class="admin-block">
+                <h2>📚 Управление курсами</h2>
+                <input type="text" id="courseName" class="admin-input" placeholder="Название курса">
+                <input type="number" id="coursePrice" class="admin-input" placeholder="Цена">
+                <input type="text" id="courseImage" class="admin-input" placeholder="Имя файла картинки (img/...)">
+                <textarea id="courseDescription" class="admin-input" placeholder="Описание курса" rows="2"></textarea>
+                <button class="admin-btn" onclick="addCourse()">➕ Добавить курс</button>
+                <div id="coursesList" class="course-list"></div>
+            </div>
+            
+            <!-- Управление пользователями -->
+            <div class="admin-block">
+                <h2>👥 Управление пользователями</h2>
+                <div id="usersList" class="user-list"></div>
+            </div>
+            
+            <!-- Управление промокодами -->
+            <div class="admin-block">
+                <h2>🏷️ Управление промокодами</h2>
+                <input type="text" id="promoCode" class="admin-input" placeholder="Код (например DISCOUNT30)">
+                <input type="number" id="discount" class="admin-input" placeholder="Скидка %">
+                <input type="date" id="expiryDate" class="admin-input">
+                <button class="admin-btn" onclick="addPromo()">➕ Добавить промокод</button>
+                <div id="promosList" class="promo-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">...</footer>
+
+    <script src="cart.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // Проверка прав админа
+        function checkAdmin() {
+            const user = getCurrentUser();
+            if (!user || user.role !== 'admin') {
+                alert('Доступ запрещён. Только для администраторов.');
+                window.location.href = 'index.html';
+            }
+        }
+        
+        // Загрузка статистики
+        function loadStats() {
+            const users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+            const purchased = JSON.parse(localStorage.getItem(PURCHASED_COURSES_KEY) || '{}');
+            let totalPurchases = 0;
+            let totalRevenue = 0;
+            Object.values(purchased).forEach(userCourses => {
+                totalPurchases += userCourses.length;
+                userCourses.forEach(course => {
+                    totalRevenue += course.price || 0;
+                });
+            });
+            document.getElementById('stats').innerHTML = `
+                <div>👥 Всего пользователей: ${users.length}</div>
+                <div>📦 Всего покупок: ${totalPurchases}</div>
+                <div>💰 Общая выручка: ${totalRevenue.toLocaleString()} ₽</div>
+            `;
+        }
+        
+        // === Управление курсами ===
+        function loadCourses() {
+            const courses = JSON.parse(localStorage.getItem('coursesCatalog') || '[]');
+            const container = document.getElementById('coursesList');
+            container.innerHTML = courses.map(course => `
+                <div class="course-item">
+                    <div class="course-info">
+                        <strong>${course.name}</strong> - ${course.price} ₽<br>
+                        <small>${course.image || 'нет картинки'}</small>
+                    </div>
+                    <div>
+                        <button class="admin-btn" onclick="editCourse(${course.id})">✏️</button>
+                        <button class="admin-btn admin-danger-btn" onclick="deleteCourse(${course.id})">🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function addCourse() {
+            const name = document.getElementById('courseName').value.trim();
+            const price = document.getElementById('coursePrice').value;
+            const image = document.getElementById('courseImage').value.trim();
+            const description = document.getElementById('courseDescription').value.trim();
+            if (!name || !price) {
+                alert('Заполните название и цену');
+                return;
+            }
+            const courses = JSON.parse(localStorage.getItem('coursesCatalog') || '[]');
+            courses.push({
+                id: Date.now(),
+                name: name,
+                price: parseInt(price),
+                image: image || 'default-course.png',
+                description: description
+            });
+            localStorage.setItem('coursesCatalog', JSON.stringify(courses));
+            loadCourses();
+            alert('Курс добавлен');
+        }
+        
+        function deleteCourse(id) {
+            if (confirm('Удалить курс?')) {
+                let courses = JSON.parse(localStorage.getItem('coursesCatalog') || '[]');
+                courses = courses.filter(c => c.id !== id);
+                localStorage.setItem('coursesCatalog', JSON.stringify(courses));
+                loadCourses();
+            }
+        }
+        
+        // === Управление пользователями ===
+        function loadUsers() {
+            const users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+            const container = document.getElementById('usersList');
+            container.innerHTML = users.map(user => `
+                <div class="user-item">
+                    <div class="user-info">
+                        <strong>${user.fullname}</strong> | ${user.email} | ${user.phone}<br>
+                        Роль: ${user.role || 'user'}
+                    </div>
+                    <div>
+                        <button class="admin-btn" onclick="changeRole('${user.email}', 'admin')">👑 Сделать админом</button>
+                        <button class="admin-btn" onclick="changeRole('${user.email}', 'user')">👤 Сделать пользователем</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function changeRole(email, newRole) {
+            let users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+            const index = users.findIndex(u => u.email === email);
+            if (index !== -1) {
+                users[index].role = newRole;
+                localStorage.setItem('registeredUsers', JSON.stringify(users));
+                loadUsers();
+                alert(`Роль изменена на ${newRole}`);
+            }
+        }
+        
+        // === Управление промокодами ===
+        function loadPromos() {
+            const promos = JSON.parse(localStorage.getItem('promoCodes') || '[]');
+            const container = document.getElementById('promosList');
+            container.innerHTML = promos.map(promo => `
+                <div class="promo-item">
+                    ${promo.code} - ${promo.discount}% (до ${promo.expiryDate || 'без срока'})
+                    <button class="admin-btn admin-danger-btn" onclick="deletePromo('${promo.code}')">🗑️</button>
+                </div>
+            `).join('');
+        }
+        
+        function addPromo() {
+            const code = document.getElementById('promoCode').value.trim().toUpperCase();
+            const discount = document.getElementById('discount').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            if (!code || !discount) {
+                alert('Заполните код и скидку');
+                return;
+            }
+            const promos = JSON.parse(localStorage.getItem('promoCodes') || '[]');
+            promos.push({ code, discount: parseInt(discount), expiryDate });
+            localStorage.setItem('promoCodes', JSON.stringify(promos));
+            loadPromos();
+            alert('Промокод добавлен');
+        }
+        
+        function deletePromo(code) {
+            let promos = JSON.parse(localStorage.getItem('promoCodes') || '[]');
+            promos = promos.filter(p => p.code !== code);
+            localStorage.setItem('promoCodes', JSON.stringify(promos));
+            loadPromos();
+        }
+        
+        // Инициализация
+        checkAdmin();
+        loadStats();
+        loadCourses();
+        loadUsers();
+        loadPromos();
+    </script>
+</body>
+</html>
